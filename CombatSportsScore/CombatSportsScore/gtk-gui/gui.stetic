@@ -138,8 +138,9 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.TextView" id="textviewmiddle">
+              <widget class="Gtk.TextView" id="textviewFightDetails">
                 <property name="MemberName" />
+                <property name="Editable">False</property>
                 <property name="Text" translatable="yes">Fight Details</property>
                 <property name="Justification">Center</property>
                 <property name="WrapMode">Word</property>
@@ -147,6 +148,7 @@
               <packing>
                 <property name="Position">1</property>
                 <property name="AutoSize">True</property>
+                <property name="Padding">5</property>
               </packing>
             </child>
             <child>

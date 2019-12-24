@@ -35,8 +35,6 @@ namespace CombatSportsScore
         private byte reach;
         private byte weight;
         private byte age;
-        private byte[] rounds = new byte[1];
-        private ushort score;
 
 
         public Fighter()
@@ -49,35 +47,6 @@ namespace CombatSportsScore
         {
             this.name = name;
         }
-
-        public Fighter(string name, byte numofrds)
-        {
-            this.name = name;
-            this.rounds = new byte[numofrds];
-        }
-
-
-        public ushort Score
-        {
-            set
-            {
-                if (!(this.rounds is null) || this.rounds.Length != 0)
-                {
-                    ushort sum = 0;
-
-                    for (int i = 0; i < this.rounds.Length; i++)
-                    {
-                        sum += this.rounds[i];
-                    }
-
-                    this.score = sum;
-                }
-
-            }
-
-            get { return this.score; }
-        }
-
 
     }
 

@@ -37,25 +37,9 @@ public partial class MainWindow
 
 	private global::Gtk.Label lblFighter1mid;
 
-	private global::Gtk.TextView textviewmiddle;
+	private global::Gtk.TextView textviewFightDetails;
 
 	private global::Gtk.Label lblFighter2mid;
-
-	private global::Gtk.HBox hbox4;
-
-	private global::Gtk.Frame frame2;
-
-	private global::Gtk.Alignment GtkAlignment;
-
-	private global::Gtk.Label GtkLabel2;
-
-	private global::Gtk.Frame frame3;
-
-	private global::Gtk.Alignment GtkAlignment1;
-
-	private global::Gtk.ScrolledWindow scrolledwindow1;
-
-	private global::Gtk.Label GtkLabel3;
 
 	protected virtual void Build()
 	{
@@ -138,25 +122,29 @@ public partial class MainWindow
 		// Container child hbox3.Gtk.Box+BoxChild
 		this.lblFighter1mid = new global::Gtk.Label();
 		this.lblFighter1mid.Name = "lblFighter1mid";
-		this.lblFighter1mid.LabelProp = global::Mono.Unix.Catalog.GetString("label6");
+		this.lblFighter1mid.LabelProp = global::Mono.Unix.Catalog.GetString("Fighter 1");
+		this.lblFighter1mid.UseUnderline = true;
 		this.hbox3.Add(this.lblFighter1mid);
 		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.lblFighter1mid]));
 		w5.Position = 0;
 		w5.Expand = false;
 		w5.Fill = false;
 		// Container child hbox3.Gtk.Box+BoxChild
-		this.textviewmiddle = new global::Gtk.TextView();
-		this.textviewmiddle.Buffer.Text = global::Mono.Unix.Catalog.GetString("Fight Details");
-		this.textviewmiddle.Name = "textviewmiddle";
-		this.textviewmiddle.Justification = ((global::Gtk.Justification)(2));
-		this.textviewmiddle.WrapMode = ((global::Gtk.WrapMode)(2));
-		this.hbox3.Add(this.textviewmiddle);
-		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.textviewmiddle]));
+		this.textviewFightDetails = new global::Gtk.TextView();
+		this.textviewFightDetails.Buffer.Text = global::Mono.Unix.Catalog.GetString("Fight Details");
+		this.textviewFightDetails.Name = "textviewFightDetails";
+		this.textviewFightDetails.Editable = false;
+		this.textviewFightDetails.Justification = ((global::Gtk.Justification)(2));
+		this.textviewFightDetails.WrapMode = ((global::Gtk.WrapMode)(2));
+		this.hbox3.Add(this.textviewFightDetails);
+		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.textviewFightDetails]));
 		w6.Position = 1;
+		w6.Padding = ((uint)(5));
 		// Container child hbox3.Gtk.Box+BoxChild
 		this.lblFighter2mid = new global::Gtk.Label();
 		this.lblFighter2mid.Name = "lblFighter2mid";
-		this.lblFighter2mid.LabelProp = global::Mono.Unix.Catalog.GetString("label7");
+		this.lblFighter2mid.LabelProp = global::Mono.Unix.Catalog.GetString("Fighter 2");
+		this.lblFighter2mid.UseUnderline = true;
 		this.hbox3.Add(this.lblFighter2mid);
 		global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.lblFighter2mid]));
 		w7.Position = 2;
@@ -167,57 +155,6 @@ public partial class MainWindow
 		w8.Position = 2;
 		w8.Expand = false;
 		w8.Fill = false;
-		// Container child vbox1.Gtk.Box+BoxChild
-		this.hbox4 = new global::Gtk.HBox();
-		this.hbox4.Name = "hbox4";
-		this.hbox4.Spacing = 6;
-		// Container child hbox4.Gtk.Box+BoxChild
-		this.frame2 = new global::Gtk.Frame();
-		this.frame2.Name = "frame2";
-		this.frame2.ShadowType = ((global::Gtk.ShadowType)(0));
-		// Container child frame2.Gtk.Container+ContainerChild
-		this.GtkAlignment = new global::Gtk.Alignment(0F, 0F, 1F, 1F);
-		this.GtkAlignment.Name = "GtkAlignment";
-		this.GtkAlignment.LeftPadding = ((uint)(12));
-		this.frame2.Add(this.GtkAlignment);
-		this.GtkLabel2 = new global::Gtk.Label();
-		this.GtkLabel2.Name = "GtkLabel2";
-		this.GtkLabel2.LabelProp = global::Mono.Unix.Catalog.GetString("<b>GtkFrame</b>");
-		this.GtkLabel2.UseMarkup = true;
-		this.frame2.LabelWidget = this.GtkLabel2;
-		this.hbox4.Add(this.frame2);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.frame2]));
-		w10.Position = 0;
-		w10.Expand = false;
-		w10.Fill = false;
-		// Container child hbox4.Gtk.Box+BoxChild
-		this.frame3 = new global::Gtk.Frame();
-		this.frame3.Name = "frame3";
-		this.frame3.ShadowType = ((global::Gtk.ShadowType)(0));
-		// Container child frame3.Gtk.Container+ContainerChild
-		this.GtkAlignment1 = new global::Gtk.Alignment(0F, 0F, 1F, 1F);
-		this.GtkAlignment1.Name = "GtkAlignment1";
-		this.GtkAlignment1.LeftPadding = ((uint)(12));
-		// Container child GtkAlignment1.Gtk.Container+ContainerChild
-		this.scrolledwindow1 = new global::Gtk.ScrolledWindow();
-		this.scrolledwindow1.CanFocus = true;
-		this.scrolledwindow1.Name = "scrolledwindow1";
-		this.scrolledwindow1.ShadowType = ((global::Gtk.ShadowType)(1));
-		this.GtkAlignment1.Add(this.scrolledwindow1);
-		this.frame3.Add(this.GtkAlignment1);
-		this.GtkLabel3 = new global::Gtk.Label();
-		this.GtkLabel3.Name = "GtkLabel3";
-		this.GtkLabel3.LabelProp = global::Mono.Unix.Catalog.GetString("<b>GtkFrame</b>");
-		this.GtkLabel3.UseMarkup = true;
-		this.frame3.LabelWidget = this.GtkLabel3;
-		this.hbox4.Add(this.frame3);
-		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox4[this.frame3]));
-		w13.Position = 2;
-		w13.Expand = false;
-		w13.Fill = false;
-		this.vbox1.Add(this.hbox4);
-		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox4]));
-		w14.Position = 3;
 		this.Add(this.vbox1);
 		if ((this.Child != null))
 		{

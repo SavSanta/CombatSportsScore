@@ -25,28 +25,48 @@
 //  THE SOFTWARE.
 
 using System;
+using static System.Console;
+
 namespace CombatSportsScore
 {
     public class ScoreCard
     {
         private DateTime date;
-        private byte rounds;
-        private short[] scoretotal;
+        private ushort[] scoretotal; 
+        private Round[] rounds;
         Fighter fighter1;
         Fighter fighter2;
 
 
         public ScoreCard(byte numofrds, string fighter1, string fighter2)
         {
-            this.fighter1 = new Fighter(fighter1, numofrds);
-            this.fighter2 = new Fighter(fighter1, numofrds);
+            this.rounds = new Round[numofrds];
+            this.fighter1 = new Fighter(fighter1);
+            this.fighter2 = new Fighter(fighter1);
         }
 
-        public void CalculateScoreCard() 
+        public void TallyScoreCard() 
         {
-            //this.fighter1.Score;
-            //this.fighter2.Score;
-            Console.WriteLine("Score is {} to {}", this.fighter1.Score, this.fighter2.Score);
+
+            if ( !(this.rounds is null) || this.rounds.Length != 0 )
+            {
+                ushort tally1 = 0;
+                ushort tally2 = 0;
+
+                for (int i = 0; i < this.rounds.Length; i++)
+                {
+                    tally1 += this.rounds[i].Score1;
+                    tally2 += this.rounds[i].Score2;
+                }
+
+                this.scoretotal = new ushort[] { tally1, tally2 };
+                WriteLine("Score is {}: {} to {}: {}", this.fighter1, this.scoretotal[0], this.fighter2,this.scoretotal[1]);
+
+            }
+
+
+
+
 
         }
 
