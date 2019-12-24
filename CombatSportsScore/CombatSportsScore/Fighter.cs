@@ -39,15 +39,15 @@ namespace CombatSportsScore
 
         public Fighter()
         {
-            this.name = "A Fighter";
-
+            this.Name = "A Fighter";
         }
 
         public Fighter(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
 
+        public string Name { get => this.name; set => this.name = value; }
     }
 
 }
