@@ -69,6 +69,10 @@ public partial class MainWindow
 
 	private global::Gtk.Statusbar statusbar1;
 
+	private global::Gtk.Label label1;
+
+	private global::Gtk.Entry entry1;
+
 	protected virtual void Build()
 	{
 		global::Stetic.Gui.Initialize(this);
@@ -279,11 +283,31 @@ public partial class MainWindow
 		this.statusbar1 = new global::Gtk.Statusbar();
 		this.statusbar1.Name = "statusbar1";
 		this.statusbar1.Spacing = 6;
-		this.vbox1.Add(this.statusbar1);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
-		w20.Position = 7;
+		// Container child statusbar1.Gtk.Box+BoxChild
+		this.label1 = new global::Gtk.Label();
+		this.label1.Name = "label1";
+		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("ID: x");
+		this.statusbar1.Add(this.label1);
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.statusbar1[this.label1]));
+		w20.Position = 0;
 		w20.Expand = false;
 		w20.Fill = false;
+		// Container child statusbar1.Gtk.Box+BoxChild
+		this.entry1 = new global::Gtk.Entry();
+		this.entry1.CanFocus = true;
+		this.entry1.Name = "entry1";
+		this.entry1.Text = global::Mono.Unix.Catalog.GetString("Fighter vs Fighter");
+		this.entry1.IsEditable = true;
+		this.entry1.WidthChars = 3;
+		this.entry1.InvisibleChar = '•';
+		this.statusbar1.Add(this.entry1);
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.statusbar1[this.entry1]));
+		w21.Position = 1;
+		this.vbox1.Add(this.statusbar1);
+		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
+		w22.Position = 7;
+		w22.Expand = false;
+		w22.Fill = false;
 		this.Add(this.vbox1);
 		if ((this.Child != null))
 		{
