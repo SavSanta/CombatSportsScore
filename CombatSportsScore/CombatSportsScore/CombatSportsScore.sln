@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CombatSportsScore", "CombatSportsScore.csproj", "{F4D9459F-54DA-4DA1-ACCC-3ABEA4FC61AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4D9459F-54DA-4DA1-ACCC-3ABEA4FC61AA}.Debug|x86.ActiveCfg = Debug|x86
+		{F4D9459F-54DA-4DA1-ACCC-3ABEA4FC61AA}.Debug|x86.Build.0 = Debug|x86
+		{F4D9459F-54DA-4DA1-ACCC-3ABEA4FC61AA}.Release|x86.ActiveCfg = Release|x86
+		{F4D9459F-54DA-4DA1-ACCC-3ABEA4FC61AA}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal

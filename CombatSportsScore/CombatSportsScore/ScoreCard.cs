@@ -31,8 +31,12 @@ namespace CombatSportsScore
 {
     public class ScoreCard
     {
+        private static int currentScoreID;
+
+        private int scoreID;
+        private string scoreTitle;
         private DateTime date;
-        private ushort[] scoretotal; 
+        private ushort[] scoreTotal; 
         private Round[] rounds;
         Fighter fighter1;
         Fighter fighter2;
@@ -40,6 +44,7 @@ namespace CombatSportsScore
 
         public ScoreCard(byte numofrds, string fighter1, string fighter2)
         {
+            this.scoreID = GetNextScoreCardID();
             this.rounds = new Round[numofrds];
             this.fighter1 = new Fighter(fighter1);
             this.fighter2 = new Fighter(fighter1);
@@ -59,16 +64,19 @@ namespace CombatSportsScore
                     tally2 += this.rounds[i].Score2;
                 }
 
-                this.scoretotal = new ushort[] { tally1, tally2 };
-                WriteLine("Score is {}: {} to {}: {}", this.fighter1, this.scoretotal[0], this.fighter2,this.scoretotal[1]);
+                this.scoreTotal = new ushort[] { tally1, tally2 };
+                WriteLine("Score is {}: {} to {}: {}", this.fighter1, this.scoreTotal[0], this.fighter2,this.scoreTotal[1]);
 
             }
 
-
-
-
-
         }
+
+        protected int GetNextScoreCardID()
+        {
+            return ++currentScoreID;
+        }
+
+
 
 
     }

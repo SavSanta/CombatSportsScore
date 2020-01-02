@@ -4,9 +4,10 @@
     <images-root-path>..</images-root-path>
   </configuration>
   <import>
+    <widget-library name="../../../../../../usr/lib/monodevelop/AddIns/MonoDevelop.GtkCore/libstetic.dll" />
     <widget-library name="../bin/Debug/CombatSportsScore.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="466 556">
+  <widget class="Gtk.Window" id="MainWindow" design-size="566 556">
     <action-group name="Default">
       <action id="FileAction">
         <property name="Type">Action</property>
@@ -38,7 +39,7 @@
         <property name="Label" translatable="yes">Load Database</property>
         <property name="ShortLabel" translatable="yes">Load Database</property>
       </action>
-      <action id="SaveAction1">
+      <action id="SaveDatabaseAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">Save Database</property>
         <property name="ShortLabel" translatable="yes">Save Database</property>
@@ -59,9 +60,22 @@
         <property name="Label" translatable="yes">About</property>
         <property name="ShortLabel" translatable="yes">About</property>
       </action>
+      <action id="NewScoreCardAction">
+        <property name="Type">Action</property>
+        <property name="Accelerator">&lt;Primary&gt;n</property>
+        <property name="Label" translatable="yes">New ScoreCard</property>
+        <property name="ShortLabel" translatable="yes">New ScoreCard</property>
+        <signal name="Activated" handler="OnNewScoreCardActionActivated" />
+      </action>
+      <action id="DeleteScoreCardAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Delete ScoreCard</property>
+        <property name="ShortLabel" translatable="yes">Delete ScoreCard</property>
+        <signal name="Activated" handler="OnDeleteScoreCardActionActivated" />
+      </action>
     </action-group>
     <property name="MemberName" />
-    <property name="Title" translatable="yes">Combat Sports Scorecard</property>
+    <property name="Title">Combat Sports Scorecard</property>
     <property name="WindowPosition">CenterOnParent</property>
     <property name="BorderWidth">6</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
@@ -71,16 +85,18 @@
         <property name="Spacing">6</property>
         <property name="BorderWidth">3</property>
         <child>
-          <widget class="Gtk.HBox" id="hbox1">
+          <widget class="Gtk.HBox" id="hboxMenu">
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.MenuBar" id="menubar1">
+              <widget class="Gtk.MenuBar" id="menubar">
                 <property name="MemberName" />
-                <node name="menubar1" type="Menubar">
+                <node name="menubar" type="Menubar">
                   <node type="Menu" action="FileAction1">
+                    <node type="Menuitem" action="NewScoreCardAction" />
+                    <node type="Menuitem" action="DeleteScoreCardAction" />
                     <node type="Menuitem" action="LoadDatabaseAction" />
-                    <node type="Menuitem" action="SaveAction1" />
+                    <node type="Menuitem" action="SaveDatabaseAction" />
                     <node type="Menuitem" action="ExitAction1" />
                   </node>
                   <node type="Menu" action="HelpAction">
@@ -122,13 +138,14 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.HBox" id="hbox3">
+          <widget class="Gtk.HBox" id="hboxFightDateHeader">
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.Label" id="lblFighter1mid">
+              <widget class="Gtk.Label" id="lblFighter1Name">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">Fighter 1</property>
+                <property name="UseMarkup">True</property>
                 <property name="UseUnderline">True</property>
               </widget>
               <packing>
@@ -137,16 +154,16 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Frame" id="frame3">
+              <widget class="Gtk.Frame" id="frameDate">
                 <property name="MemberName" />
                 <child>
-                  <widget class="Gtk.Alignment" id="GtkAlignment1">
+                  <widget class="Gtk.Alignment" id="GtkAlignmentDate">
                     <property name="MemberName" />
                     <property name="Xalign">0</property>
                     <property name="Yalign">0</property>
                     <property name="LeftPadding">12</property>
                     <child>
-                      <widget class="Gtk.Label" id="label2">
+                      <widget class="Gtk.Label" id="labelDate">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">MM-DD-YYYY</property>
                         <property name="UseMarkup">True</property>
@@ -175,7 +192,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Label" id="lblFighter2mid">
+              <widget class="Gtk.Label" id="lblFighter2Name">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">Fighter 2</property>
                 <property name="UseUnderline">True</property>
@@ -205,65 +222,19 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Table" id="table1">
+          <widget class="CombatSportsScore.ColourButton" id="colourbutton1">
             <property name="MemberName" />
-            <property name="NRows">5</property>
-            <property name="NColumns">3</property>
-            <property name="RowSpacing">6</property>
-            <property name="ColumnSpacing">6</property>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
+            <property name="Events">ButtonPressMask</property>
           </widget>
           <packing>
             <property name="Position">4</property>
             <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Frame" id="frame1">
+          <widget class="Gtk.Frame" id="frameTotalScore">
             <property name="MemberName" />
             <property name="BorderWidth">2</property>
             <child>
@@ -273,42 +244,35 @@
                 <property name="Yalign">0</property>
                 <property name="LeftPadding">4</property>
                 <child>
-                  <widget class="Gtk.HPaned" id="hpaned1">
+                  <widget class="Gtk.HPaned" id="hpaneTotalScore">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
-                    <property name="Position">178</property>
+                    <property name="Position">260</property>
                     <property name="BorderWidth">10</property>
                     <child>
-                      <widget class="Gtk.Button" id="button1">
+                      <widget class="Gtk.Label" id="labelTotalScore1">
                         <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="Type">TextOnly</property>
-                        <property name="Label" translatable="yes">GtkButton</property>
-                        <property name="UseUnderline">True</property>
+                        <property name="LabelProp">&lt;span fgcolor="red" size="x-large" weight="heavy" &gt; 0 &lt;/span&gt;</property>
+                        <property name="UseMarkup">True</property>
+                        <property name="Wrap">True</property>
                       </widget>
                       <packing>
                         <property name="Resize">False</property>
                       </packing>
                     </child>
                     <child>
-                      <widget class="Gtk.Button" id="button2">
+                      <widget class="Gtk.Label" id="labelTotalScore2">
                         <property name="MemberName" />
-                        <property name="CanFocus">True</property>
-                        <property name="Type">TextOnly</property>
-                        <property name="Label" translatable="yes">GtkButton</property>
-                        <property name="UseUnderline">True</property>
+                        <property name="LabelProp" translatable="yes">&lt;span fgcolor="blue" size="x-large" weight="heavy" &gt; 0 &lt;/span&gt;</property>
+                        <property name="UseMarkup">True</property>
                       </widget>
-                      <packing>
-                        <property name="Resize">False</property>
-                        <property name="Shrink">False</property>
-                      </packing>
                     </child>
                   </widget>
                 </child>
               </widget>
             </child>
             <child>
-              <widget class="Gtk.Label" id="GtkLabel5">
+              <widget class="Gtk.Label" id="GtkLabelScore">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">&lt;b&gt; Score &lt;/b&gt;</property>
                 <property name="UseMarkup">True</property>
@@ -327,15 +291,16 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+          <widget class="Gtk.ScrolledWindow" id="scrollwindowFightComment">
             <property name="MemberName" />
             <property name="HscrollbarPolicy">Never</property>
             <property name="ShadowType">In</property>
             <property name="WindowPlacement">BottomRight</property>
             <child>
-              <widget class="Gtk.TextView" id="textview3">
+              <widget class="Gtk.TextView" id="textviewFightComment">
                 <property name="MemberName" />
                 <property name="HeightRequest">80</property>
+                <property name="Visible">False</property>
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
                 <property name="Text" translatable="yes" />
@@ -352,11 +317,11 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Statusbar" id="statusbar1">
+          <widget class="Gtk.Statusbar" id="statusbarFooter">
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.Label" id="label1">
+              <widget class="Gtk.Label" id="labelScoreCardID">
                 <property name="MemberName" />
                 <property name="LabelProp" translatable="yes">ID: x</property>
               </widget>
@@ -368,10 +333,10 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Entry" id="entry1">
+              <widget class="Gtk.Entry" id="entryScoreCardName">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
-                <property name="Text" translatable="yes">Fighter vs Fighter</property>
+                <property name="Text" translatable="yes">Fighter 1 vs Fighter 2</property>
                 <property name="IsEditable">True</property>
                 <property name="WidthChars">3</property>
                 <property name="InvisibleChar">•</property>

@@ -17,7 +17,7 @@ public partial class MainWindow
 
 	private global::Gtk.Action LoadDatabaseAction;
 
-	private global::Gtk.Action SaveAction1;
+	private global::Gtk.Action SaveDatabaseAction;
 
 	private global::Gtk.Action ExitAction1;
 
@@ -25,53 +25,57 @@ public partial class MainWindow
 
 	private global::Gtk.Action AboutAction;
 
+	private global::Gtk.Action NewScoreCardAction;
+
+	private global::Gtk.Action DeleteScoreCardAction;
+
 	private global::Gtk.VBox vbox1;
 
-	private global::Gtk.HBox hbox1;
+	private global::Gtk.HBox hboxMenu;
 
-	private global::Gtk.MenuBar menubar1;
+	private global::Gtk.MenuBar menubar;
 
 	private global::Gtk.HSeparator hseparator1;
 
-	private global::Gtk.HBox hbox3;
+	private global::Gtk.HBox hboxFightDateHeader;
 
-	private global::Gtk.Label lblFighter1mid;
+	private global::Gtk.Label lblFighter1Name;
 
-	private global::Gtk.Frame frame3;
+	private global::Gtk.Frame frameDate;
 
-	private global::Gtk.Alignment GtkAlignment1;
+	private global::Gtk.Alignment GtkAlignmentDate;
 
-	private global::Gtk.Label label2;
+	private global::Gtk.Label labelDate;
 
 	private global::Gtk.Label GtkLabel3;
 
-	private global::Gtk.Label lblFighter2mid;
+	private global::Gtk.Label lblFighter2Name;
 
 	private global::Gtk.HSeparator hseparator2;
 
-	private global::Gtk.Table table1;
+	private global::CombatSportsScore.ColourButton colourbutton1;
 
-	private global::Gtk.Frame frame1;
+	private global::Gtk.Frame frameTotalScore;
 
 	private global::Gtk.Alignment GtkAlignment;
 
-	private global::Gtk.HPaned hpaned1;
+	private global::Gtk.HPaned hpaneTotalScore;
 
-	private global::Gtk.Button button1;
+	private global::Gtk.Label labelTotalScore1;
 
-	private global::Gtk.Button button2;
+	private global::Gtk.Label labelTotalScore2;
 
-	private global::Gtk.Label GtkLabel5;
+	private global::Gtk.Label GtkLabelScore;
 
-	private global::Gtk.ScrolledWindow GtkScrolledWindow;
+	private global::Gtk.ScrolledWindow scrollwindowFightComment;
 
-	private global::Gtk.TextView textview3;
+	private global::Gtk.TextView textviewFightComment;
 
-	private global::Gtk.Statusbar statusbar1;
+	private global::Gtk.Statusbar statusbarFooter;
 
-	private global::Gtk.Label label1;
+	private global::Gtk.Label labelScoreCardID;
 
-	private global::Gtk.Entry entry1;
+	private global::Gtk.Entry entryScoreCardName;
 
 	protected virtual void Build()
 	{
@@ -97,9 +101,9 @@ public partial class MainWindow
 		this.LoadDatabaseAction = new global::Gtk.Action("LoadDatabaseAction", global::Mono.Unix.Catalog.GetString("Load Database"), null, null);
 		this.LoadDatabaseAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Load Database");
 		w1.Add(this.LoadDatabaseAction, null);
-		this.SaveAction1 = new global::Gtk.Action("SaveAction1", global::Mono.Unix.Catalog.GetString("Save Database"), null, null);
-		this.SaveAction1.ShortLabel = global::Mono.Unix.Catalog.GetString("Save Database");
-		w1.Add(this.SaveAction1, null);
+		this.SaveDatabaseAction = new global::Gtk.Action("SaveDatabaseAction", global::Mono.Unix.Catalog.GetString("Save Database"), null, null);
+		this.SaveDatabaseAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Save Database");
+		w1.Add(this.SaveDatabaseAction, null);
 		this.ExitAction1 = new global::Gtk.Action("ExitAction1", global::Mono.Unix.Catalog.GetString("Exit"), null, null);
 		this.ExitAction1.ShortLabel = global::Mono.Unix.Catalog.GetString("Exit");
 		w1.Add(this.ExitAction1, null);
@@ -109,10 +113,16 @@ public partial class MainWindow
 		this.AboutAction = new global::Gtk.Action("AboutAction", global::Mono.Unix.Catalog.GetString("About"), null, null);
 		this.AboutAction.ShortLabel = global::Mono.Unix.Catalog.GetString("About");
 		w1.Add(this.AboutAction, null);
+		this.NewScoreCardAction = new global::Gtk.Action("NewScoreCardAction", global::Mono.Unix.Catalog.GetString("New ScoreCard"), null, null);
+		this.NewScoreCardAction.ShortLabel = global::Mono.Unix.Catalog.GetString("New ScoreCard");
+		w1.Add(this.NewScoreCardAction, "<Primary>n");
+		this.DeleteScoreCardAction = new global::Gtk.Action("DeleteScoreCardAction", global::Mono.Unix.Catalog.GetString("Delete ScoreCard"), null, null);
+		this.DeleteScoreCardAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Delete ScoreCard");
+		w1.Add(this.DeleteScoreCardAction, null);
 		this.UIManager.InsertActionGroup(w1, 0);
 		this.AddAccelGroup(this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
-		this.Title = global::Mono.Unix.Catalog.GetString("Combat Sports Scorecard");
+		this.Title = "Combat Sports Scorecard";
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		this.BorderWidth = ((uint)(6));
 		// Container child MainWindow.Gtk.Container+ContainerChild
@@ -121,21 +131,21 @@ public partial class MainWindow
 		this.vbox1.Spacing = 6;
 		this.vbox1.BorderWidth = ((uint)(3));
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.hbox1 = new global::Gtk.HBox();
-		this.hbox1.Name = "hbox1";
-		this.hbox1.Spacing = 6;
-		// Container child hbox1.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString(@"<ui><menubar name='menubar1'><menu name='FileAction1' action='FileAction1'><menuitem name='LoadDatabaseAction' action='LoadDatabaseAction'/><menuitem name='SaveAction1' action='SaveAction1'/><menuitem name='ExitAction1' action='ExitAction1'/></menu><menu name='HelpAction' action='HelpAction'><menuitem name='AboutAction' action='AboutAction'/></menu></menubar></ui>");
-		this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget("/menubar1")));
-		this.menubar1.Name = "menubar1";
-		this.hbox1.Add(this.menubar1);
-		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.menubar1]));
+		this.hboxMenu = new global::Gtk.HBox();
+		this.hboxMenu.Name = "hboxMenu";
+		this.hboxMenu.Spacing = 6;
+		// Container child hboxMenu.Gtk.Box+BoxChild
+		this.UIManager.AddUiFromString(@"<ui><menubar name='menubar'><menu name='FileAction1' action='FileAction1'><menuitem name='NewScoreCardAction' action='NewScoreCardAction'/><menuitem name='DeleteScoreCardAction' action='DeleteScoreCardAction'/><menuitem name='LoadDatabaseAction' action='LoadDatabaseAction'/><menuitem name='SaveDatabaseAction' action='SaveDatabaseAction'/><menuitem name='ExitAction1' action='ExitAction1'/></menu><menu name='HelpAction' action='HelpAction'><menuitem name='AboutAction' action='AboutAction'/></menu></menubar></ui>");
+		this.menubar = ((global::Gtk.MenuBar)(this.UIManager.GetWidget("/menubar")));
+		this.menubar.Name = "menubar";
+		this.hboxMenu.Add(this.menubar);
+		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hboxMenu[this.menubar]));
 		w2.Position = 0;
 		w2.Expand = false;
 		w2.Fill = false;
 		w2.Padding = ((uint)(5));
-		this.vbox1.Add(this.hbox1);
-		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox1]));
+		this.vbox1.Add(this.hboxMenu);
+		global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hboxMenu]));
 		w3.Position = 0;
 		w3.Expand = false;
 		w3.Fill = false;
@@ -148,53 +158,54 @@ public partial class MainWindow
 		w4.Expand = false;
 		w4.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.hbox3 = new global::Gtk.HBox();
-		this.hbox3.Name = "hbox3";
-		this.hbox3.Spacing = 6;
-		// Container child hbox3.Gtk.Box+BoxChild
-		this.lblFighter1mid = new global::Gtk.Label();
-		this.lblFighter1mid.Name = "lblFighter1mid";
-		this.lblFighter1mid.LabelProp = global::Mono.Unix.Catalog.GetString("Fighter 1");
-		this.lblFighter1mid.UseUnderline = true;
-		this.hbox3.Add(this.lblFighter1mid);
-		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.lblFighter1mid]));
+		this.hboxFightDateHeader = new global::Gtk.HBox();
+		this.hboxFightDateHeader.Name = "hboxFightDateHeader";
+		this.hboxFightDateHeader.Spacing = 6;
+		// Container child hboxFightDateHeader.Gtk.Box+BoxChild
+		this.lblFighter1Name = new global::Gtk.Label();
+		this.lblFighter1Name.Name = "lblFighter1Name";
+		this.lblFighter1Name.LabelProp = global::Mono.Unix.Catalog.GetString("Fighter 1");
+		this.lblFighter1Name.UseMarkup = true;
+		this.lblFighter1Name.UseUnderline = true;
+		this.hboxFightDateHeader.Add(this.lblFighter1Name);
+		global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hboxFightDateHeader[this.lblFighter1Name]));
 		w5.Position = 0;
-		// Container child hbox3.Gtk.Box+BoxChild
-		this.frame3 = new global::Gtk.Frame();
-		this.frame3.Name = "frame3";
-		// Container child frame3.Gtk.Container+ContainerChild
-		this.GtkAlignment1 = new global::Gtk.Alignment(0F, 0F, 1F, 1F);
-		this.GtkAlignment1.Name = "GtkAlignment1";
-		this.GtkAlignment1.LeftPadding = ((uint)(12));
-		// Container child GtkAlignment1.Gtk.Container+ContainerChild
-		this.label2 = new global::Gtk.Label();
-		this.label2.Name = "label2";
-		this.label2.LabelProp = global::Mono.Unix.Catalog.GetString("MM-DD-YYYY");
-		this.label2.UseMarkup = true;
-		this.GtkAlignment1.Add(this.label2);
-		this.frame3.Add(this.GtkAlignment1);
+		// Container child hboxFightDateHeader.Gtk.Box+BoxChild
+		this.frameDate = new global::Gtk.Frame();
+		this.frameDate.Name = "frameDate";
+		// Container child frameDate.Gtk.Container+ContainerChild
+		this.GtkAlignmentDate = new global::Gtk.Alignment(0F, 0F, 1F, 1F);
+		this.GtkAlignmentDate.Name = "GtkAlignmentDate";
+		this.GtkAlignmentDate.LeftPadding = ((uint)(12));
+		// Container child GtkAlignmentDate.Gtk.Container+ContainerChild
+		this.labelDate = new global::Gtk.Label();
+		this.labelDate.Name = "labelDate";
+		this.labelDate.LabelProp = global::Mono.Unix.Catalog.GetString("MM-DD-YYYY");
+		this.labelDate.UseMarkup = true;
+		this.GtkAlignmentDate.Add(this.labelDate);
+		this.frameDate.Add(this.GtkAlignmentDate);
 		this.GtkLabel3 = new global::Gtk.Label();
 		this.GtkLabel3.Name = "GtkLabel3";
 		this.GtkLabel3.Xpad = 113;
 		this.GtkLabel3.LabelProp = global::Mono.Unix.Catalog.GetString("<b> Date </b>");
 		this.GtkLabel3.UseMarkup = true;
-		this.frame3.LabelWidget = this.GtkLabel3;
-		this.hbox3.Add(this.frame3);
-		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.frame3]));
+		this.frameDate.LabelWidget = this.GtkLabel3;
+		this.hboxFightDateHeader.Add(this.frameDate);
+		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hboxFightDateHeader[this.frameDate]));
 		w8.Position = 1;
 		w8.Expand = false;
 		w8.Fill = false;
 		w8.Padding = ((uint)(5));
-		// Container child hbox3.Gtk.Box+BoxChild
-		this.lblFighter2mid = new global::Gtk.Label();
-		this.lblFighter2mid.Name = "lblFighter2mid";
-		this.lblFighter2mid.LabelProp = global::Mono.Unix.Catalog.GetString("Fighter 2");
-		this.lblFighter2mid.UseUnderline = true;
-		this.hbox3.Add(this.lblFighter2mid);
-		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.lblFighter2mid]));
+		// Container child hboxFightDateHeader.Gtk.Box+BoxChild
+		this.lblFighter2Name = new global::Gtk.Label();
+		this.lblFighter2Name.Name = "lblFighter2Name";
+		this.lblFighter2Name.LabelProp = global::Mono.Unix.Catalog.GetString("Fighter 2");
+		this.lblFighter2Name.UseUnderline = true;
+		this.hboxFightDateHeader.Add(this.lblFighter2Name);
+		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hboxFightDateHeader[this.lblFighter2Name]));
 		w9.Position = 2;
-		this.vbox1.Add(this.hbox3);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox3]));
+		this.vbox1.Add(this.hboxFightDateHeader);
+		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hboxFightDateHeader]));
 		w10.Position = 2;
 		w10.Expand = false;
 		w10.Fill = false;
@@ -207,104 +218,101 @@ public partial class MainWindow
 		w11.Expand = false;
 		w11.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.table1 = new global::Gtk.Table(((uint)(5)), ((uint)(3)), false);
-		this.table1.Name = "table1";
-		this.table1.RowSpacing = ((uint)(6));
-		this.table1.ColumnSpacing = ((uint)(6));
-		this.vbox1.Add(this.table1);
-		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.table1]));
+		this.colourbutton1 = new global::CombatSportsScore.ColourButton();
+		this.colourbutton1.Events = ((global::Gdk.EventMask)(256));
+		this.colourbutton1.Name = "colourbutton1";
+		this.vbox1.Add(this.colourbutton1);
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.colourbutton1]));
 		w12.Position = 4;
+		w12.Expand = false;
+		w12.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.frame1 = new global::Gtk.Frame();
-		this.frame1.Name = "frame1";
-		this.frame1.BorderWidth = ((uint)(2));
-		// Container child frame1.Gtk.Container+ContainerChild
+		this.frameTotalScore = new global::Gtk.Frame();
+		this.frameTotalScore.Name = "frameTotalScore";
+		this.frameTotalScore.BorderWidth = ((uint)(2));
+		// Container child frameTotalScore.Gtk.Container+ContainerChild
 		this.GtkAlignment = new global::Gtk.Alignment(0F, 0F, 1F, 1F);
 		this.GtkAlignment.Name = "GtkAlignment";
 		this.GtkAlignment.LeftPadding = ((uint)(4));
 		// Container child GtkAlignment.Gtk.Container+ContainerChild
-		this.hpaned1 = new global::Gtk.HPaned();
-		this.hpaned1.CanFocus = true;
-		this.hpaned1.Name = "hpaned1";
-		this.hpaned1.Position = 178;
-		this.hpaned1.BorderWidth = ((uint)(10));
-		// Container child hpaned1.Gtk.Paned+PanedChild
-		this.button1 = new global::Gtk.Button();
-		this.button1.CanFocus = true;
-		this.button1.Name = "button1";
-		this.button1.UseUnderline = true;
-		this.button1.Label = global::Mono.Unix.Catalog.GetString("GtkButton");
-		this.hpaned1.Add(this.button1);
-		global::Gtk.Paned.PanedChild w13 = ((global::Gtk.Paned.PanedChild)(this.hpaned1[this.button1]));
+		this.hpaneTotalScore = new global::Gtk.HPaned();
+		this.hpaneTotalScore.CanFocus = true;
+		this.hpaneTotalScore.Name = "hpaneTotalScore";
+		this.hpaneTotalScore.Position = 260;
+		this.hpaneTotalScore.BorderWidth = ((uint)(10));
+		// Container child hpaneTotalScore.Gtk.Paned+PanedChild
+		this.labelTotalScore1 = new global::Gtk.Label();
+		this.labelTotalScore1.Name = "labelTotalScore1";
+		this.labelTotalScore1.LabelProp = "<span fgcolor=\"red\" size=\"x-large\" weight=\"heavy\" > 0 </span>";
+		this.labelTotalScore1.UseMarkup = true;
+		this.labelTotalScore1.Wrap = true;
+		this.hpaneTotalScore.Add(this.labelTotalScore1);
+		global::Gtk.Paned.PanedChild w13 = ((global::Gtk.Paned.PanedChild)(this.hpaneTotalScore[this.labelTotalScore1]));
 		w13.Resize = false;
-		// Container child hpaned1.Gtk.Paned+PanedChild
-		this.button2 = new global::Gtk.Button();
-		this.button2.CanFocus = true;
-		this.button2.Name = "button2";
-		this.button2.UseUnderline = true;
-		this.button2.Label = global::Mono.Unix.Catalog.GetString("GtkButton");
-		this.hpaned1.Add(this.button2);
-		global::Gtk.Paned.PanedChild w14 = ((global::Gtk.Paned.PanedChild)(this.hpaned1[this.button2]));
-		w14.Resize = false;
-		w14.Shrink = false;
-		this.GtkAlignment.Add(this.hpaned1);
-		this.frame1.Add(this.GtkAlignment);
-		this.GtkLabel5 = new global::Gtk.Label();
-		this.GtkLabel5.Name = "GtkLabel5";
-		this.GtkLabel5.LabelProp = global::Mono.Unix.Catalog.GetString("<b> Score </b>");
-		this.GtkLabel5.UseMarkup = true;
-		this.GtkLabel5.Justify = ((global::Gtk.Justification)(1));
-		this.frame1.LabelWidget = this.GtkLabel5;
-		this.vbox1.Add(this.frame1);
-		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.frame1]));
+		// Container child hpaneTotalScore.Gtk.Paned+PanedChild
+		this.labelTotalScore2 = new global::Gtk.Label();
+		this.labelTotalScore2.Name = "labelTotalScore2";
+		this.labelTotalScore2.LabelProp = global::Mono.Unix.Catalog.GetString("<span fgcolor=\"blue\" size=\"x-large\" weight=\"heavy\" > 0 </span>");
+		this.labelTotalScore2.UseMarkup = true;
+		this.hpaneTotalScore.Add(this.labelTotalScore2);
+		this.GtkAlignment.Add(this.hpaneTotalScore);
+		this.frameTotalScore.Add(this.GtkAlignment);
+		this.GtkLabelScore = new global::Gtk.Label();
+		this.GtkLabelScore.Name = "GtkLabelScore";
+		this.GtkLabelScore.LabelProp = global::Mono.Unix.Catalog.GetString("<b> Score </b>");
+		this.GtkLabelScore.UseMarkup = true;
+		this.GtkLabelScore.Justify = ((global::Gtk.Justification)(1));
+		this.frameTotalScore.LabelWidget = this.GtkLabelScore;
+		this.vbox1.Add(this.frameTotalScore);
+		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.frameTotalScore]));
 		w17.Position = 5;
 		w17.Expand = false;
 		w17.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow();
-		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-		this.GtkScrolledWindow.HscrollbarPolicy = ((global::Gtk.PolicyType)(2));
-		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
-		this.GtkScrolledWindow.WindowPlacement = ((global::Gtk.CornerType)(3));
-		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-		this.textview3 = new global::Gtk.TextView();
-		this.textview3.HeightRequest = 80;
-		this.textview3.CanFocus = true;
-		this.textview3.Name = "textview3";
-		this.textview3.Justification = ((global::Gtk.Justification)(2));
-		this.textview3.WrapMode = ((global::Gtk.WrapMode)(3));
-		this.GtkScrolledWindow.Add(this.textview3);
-		this.vbox1.Add(this.GtkScrolledWindow);
-		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.GtkScrolledWindow]));
+		this.scrollwindowFightComment = new global::Gtk.ScrolledWindow();
+		this.scrollwindowFightComment.Name = "scrollwindowFightComment";
+		this.scrollwindowFightComment.HscrollbarPolicy = ((global::Gtk.PolicyType)(2));
+		this.scrollwindowFightComment.ShadowType = ((global::Gtk.ShadowType)(1));
+		this.scrollwindowFightComment.WindowPlacement = ((global::Gtk.CornerType)(3));
+		// Container child scrollwindowFightComment.Gtk.Container+ContainerChild
+		this.textviewFightComment = new global::Gtk.TextView();
+		this.textviewFightComment.HeightRequest = 80;
+		this.textviewFightComment.CanFocus = true;
+		this.textviewFightComment.Name = "textviewFightComment";
+		this.textviewFightComment.Justification = ((global::Gtk.Justification)(2));
+		this.textviewFightComment.WrapMode = ((global::Gtk.WrapMode)(3));
+		this.scrollwindowFightComment.Add(this.textviewFightComment);
+		this.vbox1.Add(this.scrollwindowFightComment);
+		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.scrollwindowFightComment]));
 		w19.Position = 6;
 		w19.Expand = false;
 		w19.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.statusbar1 = new global::Gtk.Statusbar();
-		this.statusbar1.Name = "statusbar1";
-		this.statusbar1.Spacing = 6;
-		// Container child statusbar1.Gtk.Box+BoxChild
-		this.label1 = new global::Gtk.Label();
-		this.label1.Name = "label1";
-		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString("ID: x");
-		this.statusbar1.Add(this.label1);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.statusbar1[this.label1]));
+		this.statusbarFooter = new global::Gtk.Statusbar();
+		this.statusbarFooter.Name = "statusbarFooter";
+		this.statusbarFooter.Spacing = 6;
+		// Container child statusbarFooter.Gtk.Box+BoxChild
+		this.labelScoreCardID = new global::Gtk.Label();
+		this.labelScoreCardID.Name = "labelScoreCardID";
+		this.labelScoreCardID.LabelProp = global::Mono.Unix.Catalog.GetString("ID: x");
+		this.statusbarFooter.Add(this.labelScoreCardID);
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.statusbarFooter[this.labelScoreCardID]));
 		w20.Position = 0;
 		w20.Expand = false;
 		w20.Fill = false;
-		// Container child statusbar1.Gtk.Box+BoxChild
-		this.entry1 = new global::Gtk.Entry();
-		this.entry1.CanFocus = true;
-		this.entry1.Name = "entry1";
-		this.entry1.Text = global::Mono.Unix.Catalog.GetString("Fighter vs Fighter");
-		this.entry1.IsEditable = true;
-		this.entry1.WidthChars = 3;
-		this.entry1.InvisibleChar = '•';
-		this.statusbar1.Add(this.entry1);
-		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.statusbar1[this.entry1]));
+		// Container child statusbarFooter.Gtk.Box+BoxChild
+		this.entryScoreCardName = new global::Gtk.Entry();
+		this.entryScoreCardName.CanFocus = true;
+		this.entryScoreCardName.Name = "entryScoreCardName";
+		this.entryScoreCardName.Text = global::Mono.Unix.Catalog.GetString("Fighter 1 vs Fighter 2");
+		this.entryScoreCardName.IsEditable = true;
+		this.entryScoreCardName.WidthChars = 3;
+		this.entryScoreCardName.InvisibleChar = '•';
+		this.statusbarFooter.Add(this.entryScoreCardName);
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.statusbarFooter[this.entryScoreCardName]));
 		w21.Position = 1;
-		this.vbox1.Add(this.statusbar1);
-		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbar1]));
+		this.vbox1.Add(this.statusbarFooter);
+		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbarFooter]));
 		w22.Position = 7;
 		w22.Expand = false;
 		w22.Fill = false;
@@ -313,10 +321,13 @@ public partial class MainWindow
 		{
 			this.Child.ShowAll();
 		}
-		this.DefaultWidth = 466;
+		this.DefaultWidth = 566;
 		this.DefaultHeight = 556;
+		this.textviewFightComment.Hide();
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.ExitAction1.Activated += new global::System.EventHandler(this.OnExit);
+		this.NewScoreCardAction.Activated += new global::System.EventHandler(this.OnNewScoreCardActionActivated);
+		this.DeleteScoreCardAction.Activated += new global::System.EventHandler(this.OnDeleteScoreCardActionActivated);
 	}
 }

@@ -39,4 +39,32 @@ public partial class MainWindow : Gtk.Window
         Application.Quit();
     }
 
+    protected void OnNewScoreCardActionActivated(object sender, EventArgs e)
+    {
+        this.Title = global::Mono.Unix.Catalog.GetString("SNappyHoles");
+
+        Dialog popupNumRounds = new Gtk.Dialog("New ScoreCard", this, DialogFlags.Modal, Stock.Ok, 200, Stock.Cancel, 400);
+
+        Label enterRounds = new Label("Number of Rounds");
+        popupNumRounds.VBox.Add(enterRounds);
+
+        int[] list = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 };
+        Combo comboNumRounds = new Combo();
+        comboNumRounds.PopdownStrings = Array.ConvertAll(list, ele => ele.ToString());
+        comboNumRounds.DisableActivate();
+        comboNumRounds.SetValueInList(true, false);
+        popupNumRounds.VBox.Add(comboNumRounds);
+
+
+        popupNumRounds.ShowAll();
+        int response_value = popupNumRounds.Run();
+        popupNumRounds.Destroy();
+
+    }
+
+    protected void OnDeleteScoreCardActionActivated(object sender, EventArgs e)
+    {
+    }
+
 }
+

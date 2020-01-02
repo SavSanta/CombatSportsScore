@@ -31,10 +31,10 @@ namespace CombatSportsScore
     {
         private byte score1;
         private byte score2;
-        bool isSwing;
         bool isKnockdown;
         bool isDeduction;
-        private string roundcomment;
+        bool isSwing;
+        private string roundComment;
 
 
 
@@ -52,7 +52,17 @@ namespace CombatSportsScore
         {
             this.score1 = red;
             this.score2 = blue;
-            this.roundcomment = comment;
+            this.roundComment = comment;
+        }
+
+        public Round(byte red, byte blue, string comment, bool isKnockdown, bool isDeduction, bool isSwing)
+        {
+            this.score1 = red;
+            this.score2 = blue;
+            this.roundComment = comment;
+            this.isKnockdown = isKnockdown;
+            this.isDeduction = isDeduction;
+            this.isSwing = isSwing;
         }
 
         public byte Score1 
