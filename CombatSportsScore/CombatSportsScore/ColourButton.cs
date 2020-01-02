@@ -32,8 +32,9 @@ namespace CombatSportsScore
     [System.ComponentModel.ToolboxItem(true)]
     public class ColourButton : Gtk.Bin
     {
-
-        string[] points = new string[] { "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "-" };
+        // Couple options for future refactoring. Either into Dict or Struct
+        static string[] points = new string[] { "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "-" };
+        static int[] values = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
         private Gtk.HBox box;
         private Gtk.Label lblpoints;
         private Gtk.Button button;
@@ -42,6 +43,7 @@ namespace CombatSportsScore
         public ColourButton() : base ()
         {
             Build();
+            ChangeColor();
         }
 
         protected override void OnSizeAllocated(Gdk.Rectangle allocation)
@@ -60,17 +62,6 @@ namespace CombatSportsScore
             }
         }
 
-        static Widget color_label_box(string label_text)
-        {
-            // Create box to hold label
-            HBox box = new HBox(false, 0);
-            box.BorderWidth = 2;
-
-            // Create label
-            Label label = new Label(label_text);
-
-            return (Widget)null;
-        }
 
         private void Build() 
         {
@@ -89,11 +80,14 @@ namespace CombatSportsScore
             box.Add(this.button);
             box.ShowAll();
 
+            // This damn this call is anoyingly needed otherwise it shant build
             this.Add(box);
-
 
         }
 
-
+        public void ChangeColor() 
+        {
+            lblpoints.ModifyFg(Gtk.StateType.Normal, new Gdk.Color(237, 52, 112));
+        }
     }
 }
