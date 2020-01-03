@@ -23,9 +23,8 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using Gtk;
 using System;
-using System.Drawing;
+using Gtk;
 
 namespace CombatSportsScore
 {
@@ -34,13 +33,14 @@ namespace CombatSportsScore
     {
         // Couple options for future refactoring. Either into Dict or Struct
         static string[] points = new string[] { "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "-" };
-        static int[] values = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+        static int[] pvalues = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+        enum Fcolor { None, Red, Blue };
         private Gtk.HBox box;
         private Gtk.Label lblpoints;
         private Gtk.Button button;
+        
 
-
-        public ColourButton() : base ()
+        public ColourButton() : base()
         {
             Build();
             ChangeColor();
@@ -63,16 +63,20 @@ namespace CombatSportsScore
         }
 
 
-        private void Build() 
+        private void Build()
         {
             box = new HBox(false, 0);
             box.SetSizeRequest(40, 40);
             box.BorderWidth = 2;
 
             button = new Button();
+            button.Clicked += CyclePoint;
 
             lblpoints = new Label();
+            Pango.FontDescription desc = Pango.FontDescription.FromString("Bebas Neue 14");
+            lblpoints.ModifyFont(desc);
             lblpoints.Text = points[0];
+
 
             button.Add(lblpoints);
             button.ShowAll();
@@ -85,9 +89,52 @@ namespace CombatSportsScore
 
         }
 
-        public void ChangeColor() 
+        private void CyclePoint(object sender, EventArgs args)
         {
-            lblpoints.ModifyFg(Gtk.StateType.Normal, new Gdk.Color(237, 52, 112));
+            if (this.lblpoints.Text == points[10])
+            {
+                lblpoints.Text = points[0];
+            }
+            else
+            {
+                int nextval;
+                nextval = (Array.IndexOf(points, this.lblpoints.Text) + 1);
+                this.lblpoints.Text = points[nextval];
+            }
         }
+
+        private void ChangeColor(Fcolor val = 0)
+        {
+            Gdk.Color color;
+
+            switch (val)
+            {
+                case Fcolor.Red:
+                    color = new Gdk.Color(237, 52, 112);
+                    break;
+                case Fcolor.Blue:
+                    color = new Gdk.Color(0, 0, 255);
+                    break;
+                default:
+                    color = new Gdk.Color(255, 0, 0);
+                    break;
+            }
+
+            lblpoints.ModifyFg(Gtk.StateType.Normal, color);
+            //lblpoints.ModifyFg(Gtk.StateType.Active, color);
+            //lblpoints.ModifyFg(Gtk.StateType.Inactive, color);
+            //lblpoints.ModifyFg(Gtk.StateType.Selected, color);
+
+            }
+
+        public int RoundPoints
+        {
+            get
+            {
+                return pvalues[Array.IndexOf(points, lblpoints.Text)];
+            }
+        }
+        
+
     }
 }

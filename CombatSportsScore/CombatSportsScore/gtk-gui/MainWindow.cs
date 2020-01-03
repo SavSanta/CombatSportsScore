@@ -53,7 +53,11 @@ public partial class MainWindow
 
 	private global::Gtk.HSeparator hseparator2;
 
-	private global::CombatSportsScore.ColourButton colourbutton1;
+	private global::Gtk.ScrolledWindow GtkScrolledWindow;
+
+	private global::Gtk.Table table1;
+
+	private global::CombatSportsScore.RDWidget rdwidget1;
 
 	private global::Gtk.Frame frameTotalScore;
 
@@ -125,6 +129,7 @@ public partial class MainWindow
 		this.Title = "Combat Sports Scorecard";
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		this.BorderWidth = ((uint)(6));
+		this.AllowShrink = true;
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox1 = new global::Gtk.VBox();
 		this.vbox1.Name = "vbox1";
@@ -218,14 +223,32 @@ public partial class MainWindow
 		w11.Expand = false;
 		w11.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.colourbutton1 = new global::CombatSportsScore.ColourButton();
-		this.colourbutton1.Events = ((global::Gdk.EventMask)(256));
-		this.colourbutton1.Name = "colourbutton1";
-		this.vbox1.Add(this.colourbutton1);
-		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.colourbutton1]));
-		w12.Position = 4;
-		w12.Expand = false;
-		w12.Fill = false;
+		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow();
+		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
+		this.GtkScrolledWindow.HscrollbarPolicy = ((global::Gtk.PolicyType)(2));
+		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(3));
+		this.GtkScrolledWindow.WindowPlacement = ((global::Gtk.CornerType)(3));
+		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
+		global::Gtk.Viewport w12 = new global::Gtk.Viewport();
+		w12.ShadowType = ((global::Gtk.ShadowType)(0));
+		// Container child GtkViewport.Gtk.Container+ContainerChild
+		this.table1 = new global::Gtk.Table(((uint)(1)), ((uint)(1)), false);
+		this.table1.Name = "table1";
+		this.table1.RowSpacing = ((uint)(1));
+		// Container child table1.Gtk.Table+TableChild
+		this.rdwidget1 = new global::CombatSportsScore.RDWidget();
+		this.rdwidget1.WidthRequest = 546;
+		this.rdwidget1.Events = ((global::Gdk.EventMask)(256));
+		this.rdwidget1.Name = "rdwidget1";
+		this.table1.Add(this.rdwidget1);
+		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.table1[this.rdwidget1]));
+		w13.XOptions = ((global::Gtk.AttachOptions)(4));
+		w13.YOptions = ((global::Gtk.AttachOptions)(4));
+		w12.Add(this.table1);
+		this.GtkScrolledWindow.Add(w12);
+		this.vbox1.Add(this.GtkScrolledWindow);
+		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.GtkScrolledWindow]));
+		w16.Position = 4;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.frameTotalScore = new global::Gtk.Frame();
 		this.frameTotalScore.Name = "frameTotalScore";
@@ -247,8 +270,8 @@ public partial class MainWindow
 		this.labelTotalScore1.UseMarkup = true;
 		this.labelTotalScore1.Wrap = true;
 		this.hpaneTotalScore.Add(this.labelTotalScore1);
-		global::Gtk.Paned.PanedChild w13 = ((global::Gtk.Paned.PanedChild)(this.hpaneTotalScore[this.labelTotalScore1]));
-		w13.Resize = false;
+		global::Gtk.Paned.PanedChild w17 = ((global::Gtk.Paned.PanedChild)(this.hpaneTotalScore[this.labelTotalScore1]));
+		w17.Resize = false;
 		// Container child hpaneTotalScore.Gtk.Paned+PanedChild
 		this.labelTotalScore2 = new global::Gtk.Label();
 		this.labelTotalScore2.Name = "labelTotalScore2";
@@ -264,10 +287,10 @@ public partial class MainWindow
 		this.GtkLabelScore.Justify = ((global::Gtk.Justification)(1));
 		this.frameTotalScore.LabelWidget = this.GtkLabelScore;
 		this.vbox1.Add(this.frameTotalScore);
-		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.frameTotalScore]));
-		w17.Position = 5;
-		w17.Expand = false;
-		w17.Fill = false;
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.frameTotalScore]));
+		w21.Position = 5;
+		w21.Expand = false;
+		w21.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.scrollwindowFightComment = new global::Gtk.ScrolledWindow();
 		this.scrollwindowFightComment.Name = "scrollwindowFightComment";
@@ -283,10 +306,10 @@ public partial class MainWindow
 		this.textviewFightComment.WrapMode = ((global::Gtk.WrapMode)(3));
 		this.scrollwindowFightComment.Add(this.textviewFightComment);
 		this.vbox1.Add(this.scrollwindowFightComment);
-		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.scrollwindowFightComment]));
-		w19.Position = 6;
-		w19.Expand = false;
-		w19.Fill = false;
+		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.scrollwindowFightComment]));
+		w23.Position = 6;
+		w23.Expand = false;
+		w23.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.statusbarFooter = new global::Gtk.Statusbar();
 		this.statusbarFooter.Name = "statusbarFooter";
@@ -296,10 +319,10 @@ public partial class MainWindow
 		this.labelScoreCardID.Name = "labelScoreCardID";
 		this.labelScoreCardID.LabelProp = global::Mono.Unix.Catalog.GetString("ID: x");
 		this.statusbarFooter.Add(this.labelScoreCardID);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.statusbarFooter[this.labelScoreCardID]));
-		w20.Position = 0;
-		w20.Expand = false;
-		w20.Fill = false;
+		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.statusbarFooter[this.labelScoreCardID]));
+		w24.Position = 0;
+		w24.Expand = false;
+		w24.Fill = false;
 		// Container child statusbarFooter.Gtk.Box+BoxChild
 		this.entryScoreCardName = new global::Gtk.Entry();
 		this.entryScoreCardName.CanFocus = true;
@@ -309,13 +332,13 @@ public partial class MainWindow
 		this.entryScoreCardName.WidthChars = 3;
 		this.entryScoreCardName.InvisibleChar = '•';
 		this.statusbarFooter.Add(this.entryScoreCardName);
-		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.statusbarFooter[this.entryScoreCardName]));
-		w21.Position = 1;
+		global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.statusbarFooter[this.entryScoreCardName]));
+		w25.Position = 1;
 		this.vbox1.Add(this.statusbarFooter);
-		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbarFooter]));
-		w22.Position = 7;
-		w22.Expand = false;
-		w22.Fill = false;
+		global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.statusbarFooter]));
+		w26.Position = 7;
+		w26.Expand = false;
+		w26.Fill = false;
 		this.Add(this.vbox1);
 		if ((this.Child != null))
 		{
