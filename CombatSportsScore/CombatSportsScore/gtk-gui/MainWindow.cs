@@ -87,41 +87,41 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.UIManager = new global::Gtk.UIManager();
 		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup("Default");
-		this.FileAction = new global::Gtk.Action("FileAction", global::Mono.Unix.Catalog.GetString("File"), null, null);
-		this.FileAction.ShortLabel = global::Mono.Unix.Catalog.GetString("File");
+		this.FileAction = new global::Gtk.Action("FileAction", "File", null, null);
+		this.FileAction.ShortLabel = "File";
 		w1.Add(this.FileAction, null);
-		this.LoadAction = new global::Gtk.Action("LoadAction", global::Mono.Unix.Catalog.GetString("Load"), null, null);
-		this.LoadAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Load");
+		this.LoadAction = new global::Gtk.Action("LoadAction", "Load", null, null);
+		this.LoadAction.ShortLabel = "Load";
 		w1.Add(this.LoadAction, null);
-		this.SaveAction = new global::Gtk.Action("SaveAction", global::Mono.Unix.Catalog.GetString("Save"), null, null);
-		this.SaveAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Save");
+		this.SaveAction = new global::Gtk.Action("SaveAction", "Save", null, null);
+		this.SaveAction.ShortLabel = "Save";
 		w1.Add(this.SaveAction, null);
-		this.ExitAction = new global::Gtk.Action("ExitAction", global::Mono.Unix.Catalog.GetString("Exit"), null, null);
-		this.ExitAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Exit");
+		this.ExitAction = new global::Gtk.Action("ExitAction", "Exit", null, null);
+		this.ExitAction.ShortLabel = "Exit";
 		w1.Add(this.ExitAction, null);
-		this.FileAction1 = new global::Gtk.Action("FileAction1", global::Mono.Unix.Catalog.GetString("File"), null, null);
-		this.FileAction1.ShortLabel = global::Mono.Unix.Catalog.GetString("File");
+		this.FileAction1 = new global::Gtk.Action("FileAction1", "File", null, null);
+		this.FileAction1.ShortLabel = "File";
 		w1.Add(this.FileAction1, null);
-		this.LoadDatabaseAction = new global::Gtk.Action("LoadDatabaseAction", global::Mono.Unix.Catalog.GetString("Load Database"), null, null);
-		this.LoadDatabaseAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Load Database");
+		this.LoadDatabaseAction = new global::Gtk.Action("LoadDatabaseAction", "Load Database", null, null);
+		this.LoadDatabaseAction.ShortLabel = "Load Database";
 		w1.Add(this.LoadDatabaseAction, null);
-		this.SaveDatabaseAction = new global::Gtk.Action("SaveDatabaseAction", global::Mono.Unix.Catalog.GetString("Save Database"), null, null);
-		this.SaveDatabaseAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Save Database");
+		this.SaveDatabaseAction = new global::Gtk.Action("SaveDatabaseAction", "Save Database", null, null);
+		this.SaveDatabaseAction.ShortLabel = "Save Database";
 		w1.Add(this.SaveDatabaseAction, null);
-		this.ExitAction1 = new global::Gtk.Action("ExitAction1", global::Mono.Unix.Catalog.GetString("Exit"), null, null);
-		this.ExitAction1.ShortLabel = global::Mono.Unix.Catalog.GetString("Exit");
+		this.ExitAction1 = new global::Gtk.Action("ExitAction1", "Exit", null, null);
+		this.ExitAction1.ShortLabel = "Exit";
 		w1.Add(this.ExitAction1, null);
-		this.HelpAction = new global::Gtk.Action("HelpAction", global::Mono.Unix.Catalog.GetString("Help"), null, null);
-		this.HelpAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Help");
+		this.HelpAction = new global::Gtk.Action("HelpAction", "Help", null, null);
+		this.HelpAction.ShortLabel = "Help";
 		w1.Add(this.HelpAction, null);
-		this.AboutAction = new global::Gtk.Action("AboutAction", global::Mono.Unix.Catalog.GetString("About"), null, null);
-		this.AboutAction.ShortLabel = global::Mono.Unix.Catalog.GetString("About");
+		this.AboutAction = new global::Gtk.Action("AboutAction", "About", null, null);
+		this.AboutAction.ShortLabel = "About";
 		w1.Add(this.AboutAction, null);
-		this.NewScoreCardAction = new global::Gtk.Action("NewScoreCardAction", global::Mono.Unix.Catalog.GetString("New ScoreCard"), null, null);
-		this.NewScoreCardAction.ShortLabel = global::Mono.Unix.Catalog.GetString("New ScoreCard");
+		this.NewScoreCardAction = new global::Gtk.Action("NewScoreCardAction", "New ScoreCard", null, null);
+		this.NewScoreCardAction.ShortLabel = "New ScoreCard";
 		w1.Add(this.NewScoreCardAction, "<Primary>n");
-		this.DeleteScoreCardAction = new global::Gtk.Action("DeleteScoreCardAction", global::Mono.Unix.Catalog.GetString("Delete ScoreCard"), null, null);
-		this.DeleteScoreCardAction.ShortLabel = global::Mono.Unix.Catalog.GetString("Delete ScoreCard");
+		this.DeleteScoreCardAction = new global::Gtk.Action("DeleteScoreCardAction", "Delete ScoreCard", null, null);
+		this.DeleteScoreCardAction.ShortLabel = "Delete ScoreCard";
 		w1.Add(this.DeleteScoreCardAction, null);
 		this.UIManager.InsertActionGroup(w1, 0);
 		this.AddAccelGroup(this.UIManager.AccelGroup);
@@ -169,7 +169,7 @@ public partial class MainWindow
 		// Container child hboxFightDateHeader.Gtk.Box+BoxChild
 		this.lblFighter1Name = new global::Gtk.Label();
 		this.lblFighter1Name.Name = "lblFighter1Name";
-		this.lblFighter1Name.LabelProp = global::Mono.Unix.Catalog.GetString("Fighter 1");
+		this.lblFighter1Name.LabelProp = "Fighter 1";
 		this.lblFighter1Name.UseMarkup = true;
 		this.lblFighter1Name.UseUnderline = true;
 		this.hboxFightDateHeader.Add(this.lblFighter1Name);
@@ -185,14 +185,14 @@ public partial class MainWindow
 		// Container child GtkAlignmentDate.Gtk.Container+ContainerChild
 		this.labelDate = new global::Gtk.Label();
 		this.labelDate.Name = "labelDate";
-		this.labelDate.LabelProp = global::Mono.Unix.Catalog.GetString("MM-DD-YYYY");
+		this.labelDate.LabelProp = "MM-DD-YYYY";
 		this.labelDate.UseMarkup = true;
 		this.GtkAlignmentDate.Add(this.labelDate);
 		this.frameDate.Add(this.GtkAlignmentDate);
 		this.GtkLabel3 = new global::Gtk.Label();
 		this.GtkLabel3.Name = "GtkLabel3";
 		this.GtkLabel3.Xpad = 113;
-		this.GtkLabel3.LabelProp = global::Mono.Unix.Catalog.GetString("<b> Date </b>");
+		this.GtkLabel3.LabelProp = "<b> Date </b>";
 		this.GtkLabel3.UseMarkup = true;
 		this.frameDate.LabelWidget = this.GtkLabel3;
 		this.hboxFightDateHeader.Add(this.frameDate);
@@ -204,7 +204,7 @@ public partial class MainWindow
 		// Container child hboxFightDateHeader.Gtk.Box+BoxChild
 		this.lblFighter2Name = new global::Gtk.Label();
 		this.lblFighter2Name.Name = "lblFighter2Name";
-		this.lblFighter2Name.LabelProp = global::Mono.Unix.Catalog.GetString("Fighter 2");
+		this.lblFighter2Name.LabelProp = "Fighter 2";
 		this.lblFighter2Name.UseUnderline = true;
 		this.hboxFightDateHeader.Add(this.lblFighter2Name);
 		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hboxFightDateHeader[this.lblFighter2Name]));
@@ -275,14 +275,14 @@ public partial class MainWindow
 		// Container child hpaneTotalScore.Gtk.Paned+PanedChild
 		this.labelTotalScore2 = new global::Gtk.Label();
 		this.labelTotalScore2.Name = "labelTotalScore2";
-		this.labelTotalScore2.LabelProp = global::Mono.Unix.Catalog.GetString("<span fgcolor=\"blue\" size=\"x-large\" weight=\"heavy\" > 0 </span>");
+		this.labelTotalScore2.LabelProp = "<span fgcolor=\"blue\" size=\"x-large\" weight=\"heavy\" > 0 </span>";
 		this.labelTotalScore2.UseMarkup = true;
 		this.hpaneTotalScore.Add(this.labelTotalScore2);
 		this.GtkAlignment.Add(this.hpaneTotalScore);
 		this.frameTotalScore.Add(this.GtkAlignment);
 		this.GtkLabelScore = new global::Gtk.Label();
 		this.GtkLabelScore.Name = "GtkLabelScore";
-		this.GtkLabelScore.LabelProp = global::Mono.Unix.Catalog.GetString("<b> Score </b>");
+		this.GtkLabelScore.LabelProp = "<b> Score </b>";
 		this.GtkLabelScore.UseMarkup = true;
 		this.GtkLabelScore.Justify = ((global::Gtk.Justification)(1));
 		this.frameTotalScore.LabelWidget = this.GtkLabelScore;
@@ -317,7 +317,7 @@ public partial class MainWindow
 		// Container child statusbarFooter.Gtk.Box+BoxChild
 		this.labelScoreCardID = new global::Gtk.Label();
 		this.labelScoreCardID.Name = "labelScoreCardID";
-		this.labelScoreCardID.LabelProp = global::Mono.Unix.Catalog.GetString("ID: x");
+		this.labelScoreCardID.LabelProp = "ID: x";
 		this.statusbarFooter.Add(this.labelScoreCardID);
 		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.statusbarFooter[this.labelScoreCardID]));
 		w24.Position = 0;
@@ -327,7 +327,7 @@ public partial class MainWindow
 		this.entryScoreCardName = new global::Gtk.Entry();
 		this.entryScoreCardName.CanFocus = true;
 		this.entryScoreCardName.Name = "entryScoreCardName";
-		this.entryScoreCardName.Text = global::Mono.Unix.Catalog.GetString("Fighter 1 vs Fighter 2");
+		this.entryScoreCardName.Text = "Fighter 1 vs Fighter 2";
 		this.entryScoreCardName.IsEditable = true;
 		this.entryScoreCardName.WidthChars = 3;
 		this.entryScoreCardName.InvisibleChar = '•';

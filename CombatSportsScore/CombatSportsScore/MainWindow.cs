@@ -41,7 +41,7 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnNewScoreCardActionActivated(object sender, EventArgs e)
     {
-        this.Title = global::Mono.Unix.Catalog.GetString("SNappyHoles");
+        this.Title = "SNappyHoles";
 
         Dialog popupNumRounds = new Gtk.Dialog("New ScoreCard", this, DialogFlags.Modal, Stock.Ok, 200, Stock.Cancel, 400);
 

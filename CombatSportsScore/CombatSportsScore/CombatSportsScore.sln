@@ -14,4 +14,7 @@ Global
 		{F4D9459F-54DA-4DA1-ACCC-3ABEA4FC61AA}.Release|x86.ActiveCfg = Release|x86
 		{F4D9459F-54DA-4DA1-ACCC-3ABEA4FC61AA}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		version = 0.7
+	EndGlobalSection
 EndGlobal

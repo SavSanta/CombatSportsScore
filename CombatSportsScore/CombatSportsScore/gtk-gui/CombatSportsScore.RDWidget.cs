@@ -99,7 +99,7 @@ namespace CombatSportsScore
 			// Container child table.Gtk.Table+TableChild
 			this.labelRound = new global::Gtk.Label();
 			this.labelRound.Name = "labelRound";
-			this.labelRound.LabelProp = global::Mono.Unix.Catalog.GetString("<b>Round </b>");
+			this.labelRound.LabelProp = "<b>Round </b>";
 			this.labelRound.UseMarkup = true;
 			this.labelRound.Justify = ((global::Gtk.Justification)(2));
 			this.table.Add(this.labelRound);

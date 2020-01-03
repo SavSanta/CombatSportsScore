@@ -3,7 +3,6 @@
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/libstetic.dll
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/libstetic.xml
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/libstetic.dll.config
-/home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.csprojAssemblyReference.cache
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.csproj.CopyComplete
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.exe
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.pdb
