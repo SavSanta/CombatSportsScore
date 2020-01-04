@@ -32,18 +32,17 @@ namespace CombatSportsScore
     public class ColourButton : Gtk.Bin
     {
         // Couple options for future refactoring. Either into Dict or Struct
-        static string[] points = new string[] { "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "-" };
-        static int[] pvalues = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
-        enum Fcolor { None, Red, Blue };
+        static readonly string[] points = new string[] { "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "-" };
+        static readonly int[] pvalues = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
         private Gtk.HBox box;
         private Gtk.Label lblpoints;
         private Gtk.Button button;
-        
 
-        public ColourButton() : base()
+
+        public ColourButton(byte coloropt = 1)
         {
             Build();
-            ChangeColor();
+            ChangeColor(coloropt);
         }
 
         protected override void OnSizeAllocated(Gdk.Rectangle allocation)
@@ -103,20 +102,20 @@ namespace CombatSportsScore
             }
         }
 
-        private void ChangeColor(Fcolor val = 0)
+        private void ChangeColor(byte sel)
         {
             Gdk.Color color;
 
-            switch (val)
+            switch (sel)
             {
-                case Fcolor.Red:
-                    color = new Gdk.Color(237, 52, 112);
+                case 1:
+                    color = new Gdk.Color(255, 0, 0);
                     break;
-                case Fcolor.Blue:
+                case 2:
                     color = new Gdk.Color(0, 0, 255);
                     break;
                 default:
-                    color = new Gdk.Color(255, 0, 0);
+                    color = new Gdk.Color(232, 27, 92);
                     break;
             }
 
@@ -125,12 +124,13 @@ namespace CombatSportsScore
             //lblpoints.ModifyFg(Gtk.StateType.Inactive, color);
             //lblpoints.ModifyFg(Gtk.StateType.Selected, color);
 
-            }
+        }
 
         public int RoundPoints
         {
             get
             {
+                // Return points-value using which should be at same index of points array.
                 return pvalues[Array.IndexOf(points, lblpoints.Text)];
             }
         }
