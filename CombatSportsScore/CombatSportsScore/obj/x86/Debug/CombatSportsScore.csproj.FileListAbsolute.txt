@@ -6,3 +6,4 @@
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.csproj.CopyComplete
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.exe
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.pdb
+/home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.csprojAssemblyReference.cache

@@ -29,7 +29,7 @@ namespace CombatSportsScore
     [System.ComponentModel.ToolboxItem(true)]
     public partial class RDWidget : Gtk.Bin
     {
-        private int roundNumber;
+        private string roundNumber;
 
         public RDWidget()
         {
@@ -39,9 +39,12 @@ namespace CombatSportsScore
 
         public string RoundNumber
         {
-            get { return Convert.ToString(this.roundNumber); }
-            set { if (value != null) { this.roundNumber = Convert.ToInt32(value); } }
-
+            get { return this.roundNumber; }
+            set
+            {
+                this.roundNumber = value;
+                this.labelRound.Text = $"Round {value}";
+            }
         }
 
         public int FighterScore1

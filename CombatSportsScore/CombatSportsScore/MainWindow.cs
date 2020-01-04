@@ -24,7 +24,6 @@ using Gtk;
 public partial class MainWindow : Gtk.Window
 {
 
-   
     private CombatSportsScore.ScoreCard main_Card;
     private CombatSportsScore.Round[] main_Rounds;
 
@@ -108,6 +107,7 @@ public partial class MainWindow : Gtk.Window
                 if (response_value2 == 200)
                 {
                     this.main_Card = new CombatSportsScore.ScoreCard(Convert.ToByte(comboNumRounds.Entry.Text), entryFighter1.Text.Trim(), entryFighter2.Text.Trim());
+                    PopulateRDTable(Convert.ToByte(comboNumRounds.Entry.Text));
                     PopulateUI();
                 }
 
@@ -127,6 +127,7 @@ public partial class MainWindow : Gtk.Window
         this.lblFighter2Name.LabelProp = "<b>" + this.main_Card.Fighter2.Name + "</b>";
         this.lblFighter1Name.UseMarkup = true;
         this.lblFighter2Name.UseMarkup = true;
+
         this.labelDate.LabelProp = this.main_Card.Date.ToShortDateString();
         this.entryScoreCardName.Text = this.main_Card.ScoreTitle;
         this.GtkScrolledWindow.Show();
@@ -139,7 +140,7 @@ public partial class MainWindow : Gtk.Window
     public void DePopulateUI()
     {
         this.main_Card = new CombatSportsScore.ScoreCard();
-        this.labelScoreCardID.LabelProp += this.main_Card.ScoreID;
+        this.labelScoreCardID.LabelProp = "ID: x";
         this.lblFighter1Name.LabelProp = this.main_Card.Fighter1.Name;
         this.lblFighter2Name.LabelProp = this.main_Card.Fighter2.Name;
         this.labelDate.LabelProp = "MM-DD-YYYY";
@@ -149,6 +150,28 @@ public partial class MainWindow : Gtk.Window
         this.textviewFightComment.Hide();
         this.statusbarFooter.Hide();
         //De-Enable Save Option In the Menu
+    }
+
+
+    public void PopulateRDTable(byte numofrounds) 
+    {
+
+        this.rdtable.Resize(numofrounds, 1);
+
+        for (uint i = 1; i < numofrounds; i++)
+        {
+            CombatSportsScore.RDWidget tark = new CombatSportsScore.RDWidget();
+            tark.Events = ((global::Gdk.EventMask)(256));
+            tark.Name = "rdwidget" + (i + 1);
+            tark.RoundNumber = Convert.ToString(i + 1);
+            this.rdtable.Attach(tark, 0, 1, 0 + i, 1 + i, (AttachOptions)1, (AttachOptions)0 , 0, 0);
+            rdtable.ShowAll();
+        }
+
+
+
+
+
     }
 
 }
