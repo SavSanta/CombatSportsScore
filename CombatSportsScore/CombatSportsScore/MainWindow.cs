@@ -161,16 +161,17 @@ public partial class MainWindow : Gtk.Window
         for (uint i = 1; i < numofrounds; i++)
         {
             CombatSportsScore.RDWidget tark = new CombatSportsScore.RDWidget();
-            this.tark.WidthRequest = 546;
-            this.tark.Events = ((global::Gdk.EventMask)(256));
-            this.tark.Name = "rdwidget1"+i;
+            tark.WidthRequest = 546;
+            tark.Events = ((global::Gdk.EventMask)(256));
+            tark.Name = "rdwidget1"+i;
             //this.rdtable.Add(this.rdwidget1);
             //Table.TableChild ww13 = ((Table.TableChild)(rdtable[rdwidget1]));
             //ww13.XOptions = 0;
             //ww13.YOptions = (AttachOptions) 4;
-            this.rdtable.Attach(rdwidget1, 0 + i, 1 + i, 0, 1);
+            this.rdtable.Attach(tark, 0 + i, 1 + i, 0, 1);
             rdtable.ShowAll();
         }
+
 
 
 
