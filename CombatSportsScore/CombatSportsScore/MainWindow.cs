@@ -25,7 +25,6 @@ public partial class MainWindow : Gtk.Window
 {
 
     private CombatSportsScore.ScoreCard main_Card;
-    private CombatSportsScore.Round[] main_Rounds;
 
 
     public MainWindow() : base(Gtk.WindowType.Toplevel)
@@ -107,6 +106,7 @@ public partial class MainWindow : Gtk.Window
                 if (response_value2 == 200)
                 {
                     this.main_Card = new CombatSportsScore.ScoreCard(Convert.ToByte(comboNumRounds.Entry.Text), entryFighter1.Text.Trim(), entryFighter2.Text.Trim());
+
                     PopulateRDTable(Convert.ToByte(comboNumRounds.Entry.Text));
                     PopulateUI();
                 }
