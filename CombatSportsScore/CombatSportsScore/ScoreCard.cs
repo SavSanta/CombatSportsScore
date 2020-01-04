@@ -43,6 +43,9 @@ namespace CombatSportsScore
 
         public ScoreCard() 
         {
+            this.Fighter1 = new Fighter("");
+            this.Fighter2 = new Fighter("");
+
         }
 
         public ScoreCard(byte numofrds, string fighter1, string fighter2)
