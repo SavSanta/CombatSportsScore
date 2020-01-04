@@ -1,4 +1,4 @@
-﻿//
+//
 //  MainWindow.cs
 //
 //  Author:
@@ -47,6 +47,7 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnDeleteScoreCardActionActivated(object sender, EventArgs e)
     {
+        DePopulateUI();
     }
 
     protected void OnNewScoreCardActionActivated(object sender, EventArgs e)
@@ -121,7 +122,7 @@ public partial class MainWindow : Gtk.Window
 
     public void PopulateUI()
     {
-        this.labelScoreCardID.LabelProp += this.main_Card.ScoreID;
+        this.labelScoreCardID.LabelProp = "ID: " + this.main_Card.ScoreID;
         this.lblFighter1Name.LabelProp = "<b>" + this.main_Card.Fighter1.Name + "</b>";
         this.lblFighter2Name.LabelProp = "<b>" + this.main_Card.Fighter2.Name + "</b>";
         this.lblFighter1Name.UseMarkup = true;
@@ -141,7 +142,7 @@ public partial class MainWindow : Gtk.Window
         this.labelScoreCardID.LabelProp += this.main_Card.ScoreID;
         this.lblFighter1Name.LabelProp = this.main_Card.Fighter1.Name;
         this.lblFighter2Name.LabelProp = this.main_Card.Fighter2.Name;
-        this.labelDate.LabelProp = this.main_Card.Date.ToShortDateString();
+        this.labelDate.LabelProp = "MM-DD-YYYY";
         this.entryScoreCardName.Text = this.main_Card.ScoreTitle;
         this.GtkScrolledWindow.Hide();
         this.frameTotalScore.Hide();
@@ -151,4 +152,3 @@ public partial class MainWindow : Gtk.Window
     }
 
 }
-
