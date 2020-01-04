@@ -41,6 +41,9 @@ namespace CombatSportsScore
         Fighter fighter1;
         Fighter fighter2;
 
+        public ScoreCard() 
+        {
+        }
 
         public ScoreCard(byte numofrds, string fighter1, string fighter2)
         {
