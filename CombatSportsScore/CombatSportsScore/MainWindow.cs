@@ -135,5 +135,20 @@ public partial class MainWindow : Gtk.Window
         //Re-Enable Save Option In the Menu
     }
 
+    public void DePopulateUI()
+    {
+        this.main_Card = new CombatSportsScore.ScoreCard();
+        this.labelScoreCardID.LabelProp += this.main_Card.ScoreID;
+        this.lblFighter1Name.LabelProp = this.main_Card.Fighter1.Name;
+        this.lblFighter2Name.LabelProp = this.main_Card.Fighter2.Name;
+        this.labelDate.LabelProp = this.main_Card.Date.ToShortDateString();
+        this.entryScoreCardName.Text = this.main_Card.ScoreTitle;
+        this.GtkScrolledWindow.Hide();
+        this.frameTotalScore.Hide();
+        this.textviewFightComment.Hide();
+        this.statusbarFooter.Hide();
+        //De-Enable Save Option In the Menu
+    }
+
 }
 
