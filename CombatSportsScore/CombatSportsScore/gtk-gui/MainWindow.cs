@@ -345,6 +345,7 @@ public partial class MainWindow
 		}
 		this.DefaultWidth = 492;
 		this.DefaultHeight = 556;
+		this.GtkScrolledWindow.Hide();
 		this.frameTotalScore.Hide();
 		this.textviewFightComment.Hide();
 		this.statusbarFooter.Hide();
