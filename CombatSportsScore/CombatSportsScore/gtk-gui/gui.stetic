@@ -7,7 +7,7 @@
     <widget-library name="../../../../../../usr/lib/monodevelop/AddIns/MonoDevelop.GtkCore/libstetic.dll" />
     <widget-library name="../bin/Debug/CombatSportsScore.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="566 556">
+  <widget class="Gtk.Window" id="MainWindow" design-size="492 556">
     <action-group name="Default">
       <action id="FileAction">
         <property name="Type">Action</property>
@@ -75,6 +75,7 @@
       </action>
     </action-group>
     <property name="MemberName" />
+    <property name="WidthRequest">455</property>
     <property name="Title">Combat Sports Scorecard</property>
     <property name="WindowPosition">CenterOnParent</property>
     <property name="BorderWidth">6</property>
@@ -167,7 +168,6 @@
                       <widget class="Gtk.Label" id="labelDate">
                         <property name="MemberName" />
                         <property name="LabelProp" translatable="yes">MM-DD-YYYY</property>
-                        <property name="UseMarkup">True</property>
                       </widget>
                     </child>
                   </widget>
@@ -178,6 +178,7 @@
                     <property name="Xpad">113</property>
                     <property name="LabelProp" translatable="yes">&lt;b&gt; Date &lt;/b&gt;</property>
                     <property name="UseMarkup">True</property>
+                    <property name="Justify">Center</property>
                   </widget>
                   <packing>
                     <property name="type">label_item</property>
@@ -225,6 +226,7 @@
         <child>
           <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
             <property name="MemberName" />
+            <property name="Visible">False</property>
             <property name="HscrollbarPolicy">Never</property>
             <property name="ShadowType">EtchedIn</property>
             <property name="WindowPlacement">BottomRight</property>
@@ -244,7 +246,7 @@
                         <property name="Events">ButtonPressMask</property>
                       </widget>
                       <packing>
-                        <property name="AutoSize">True</property>
+                        <property name="AutoSize">False</property>
                         <property name="XOptions">Fill</property>
                         <property name="YOptions">Fill</property>
                         <property name="XExpand">False</property>
@@ -268,6 +270,7 @@
         <child>
           <widget class="Gtk.Frame" id="frameTotalScore">
             <property name="MemberName" />
+            <property name="Visible">False</property>
             <property name="BorderWidth">2</property>
             <child>
               <widget class="Gtk.Alignment" id="GtkAlignment">
@@ -351,11 +354,12 @@
         <child>
           <widget class="Gtk.Statusbar" id="statusbarFooter">
             <property name="MemberName" />
+            <property name="Visible">False</property>
             <property name="Spacing">6</property>
             <child>
               <widget class="Gtk.Label" id="labelScoreCardID">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">ID: x</property>
+                <property name="LabelProp" translatable="yes">ID: </property>
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -395,9 +399,8 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Bin" id="CombatSportsScore.RDWidget" design-size="546 50">
+  <widget class="Gtk.Bin" id="CombatSportsScore.RDWidget" design-size="473 50">
     <property name="MemberName" />
-    <property name="WidthRequest">546</property>
     <property name="Visible">False</property>
     <child>
       <widget class="Gtk.Table" id="table">
@@ -413,7 +416,7 @@
           <packing>
             <property name="TopAttach">1</property>
             <property name="BottomAttach">2</property>
-            <property name="AutoSize">True</property>
+            <property name="AutoSize">False</property>
             <property name="XOptions">Fill</property>
             <property name="YOptions">Fill</property>
             <property name="XExpand">False</property>
@@ -435,11 +438,11 @@
             <property name="LeftAttach">2</property>
             <property name="RightAttach">3</property>
             <property name="AutoSize">False</property>
-            <property name="XOptions">Shrink, Fill</property>
+            <property name="XOptions">Fill</property>
             <property name="YOptions">Fill</property>
             <property name="XExpand">False</property>
             <property name="XFill">True</property>
-            <property name="XShrink">True</property>
+            <property name="XShrink">False</property>
             <property name="YExpand">False</property>
             <property name="YFill">True</property>
             <property name="YShrink">False</property>
@@ -454,9 +457,9 @@
                 <property name="MemberName" />
                 <property name="Tooltip">If Round Has A KnockDown</property>
                 <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label">Knockdown</property>
-                <property name="UseUnderline">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:stock_bottom Menu</property>
+                <property name="Label" />
               </widget>
               <packing>
                 <property name="Position">0</property>
@@ -468,9 +471,9 @@
                 <property name="MemberName" />
                 <property name="Tooltip">Round Has Points Taken</property>
                 <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label">Point</property>
-                <property name="UseUnderline">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:gtk-media-record Menu</property>
+                <property name="Label" />
               </widget>
               <packing>
                 <property name="Position">1</property>
@@ -482,9 +485,9 @@
                 <property name="MemberName" />
                 <property name="Tooltip">You Consider Round Swingable To Either Fighter</property>
                 <property name="CanFocus">True</property>
-                <property name="Type">TextOnly</property>
-                <property name="Label">Swing</property>
-                <property name="UseUnderline">True</property>
+                <property name="Type">TextAndIcon</property>
+                <property name="Icon">stock:stock_text_justify Menu</property>
+                <property name="Label" />
               </widget>
               <packing>
                 <property name="Position">2</property>
@@ -511,17 +514,18 @@
         <child>
           <widget class="Gtk.Label" id="labelRound">
             <property name="MemberName" />
+            <property name="WidthRequest">462</property>
             <property name="LabelProp" translatable="yes">&lt;b&gt;Round &lt;/b&gt;</property>
             <property name="UseMarkup">True</property>
             <property name="Justify">Center</property>
           </widget>
           <packing>
             <property name="RightAttach">3</property>
-            <property name="AutoSize">False</property>
-            <property name="XOptions">Expand, Shrink, Fill</property>
+            <property name="AutoSize">True</property>
+            <property name="XOptions">Shrink</property>
             <property name="YOptions">Fill</property>
-            <property name="XExpand">True</property>
-            <property name="XFill">True</property>
+            <property name="XExpand">False</property>
+            <property name="XFill">False</property>
             <property name="XShrink">True</property>
             <property name="YExpand">False</property>
             <property name="YFill">True</property>

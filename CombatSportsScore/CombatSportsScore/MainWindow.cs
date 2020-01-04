@@ -23,6 +23,12 @@ using Gtk;
 
 public partial class MainWindow : Gtk.Window
 {
+
+   
+    private CombatSportsScore.ScoreCard main_Card;
+    private CombatSportsScore.Round[] main_Rounds;
+
+
     public MainWindow() : base(Gtk.WindowType.Toplevel)
     {
         Build();
@@ -39,9 +45,12 @@ public partial class MainWindow : Gtk.Window
         Application.Quit();
     }
 
+    protected void OnDeleteScoreCardActionActivated(object sender, EventArgs e)
+    {
+    }
+
     protected void OnNewScoreCardActionActivated(object sender, EventArgs e)
     {
-        this.Title = "SNappyHoles";
 
         Dialog popupNumRounds = new Gtk.Dialog("New ScoreCard", this, DialogFlags.Modal, Stock.Ok, 200, Stock.Cancel, 400);
 
@@ -49,21 +58,80 @@ public partial class MainWindow : Gtk.Window
         popupNumRounds.VBox.Add(enterRounds);
 
         int[] list = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 };
+        #pragma warning disable CS0612 // Type or member is obsolete
         Combo comboNumRounds = new Combo();
+        #pragma warning restore CS0612 // Type or member is obsolete
         comboNumRounds.PopdownStrings = Array.ConvertAll(list, ele => ele.ToString());
         comboNumRounds.DisableActivate();
         comboNumRounds.SetValueInList(true, false);
         popupNumRounds.VBox.Add(comboNumRounds);
 
-
         popupNumRounds.ShowAll();
         int response_value = popupNumRounds.Run();
-        popupNumRounds.Destroy();
 
+        if (response_value == 200)
+        {
+            {
+                Dialog popupFighters = new Gtk.Dialog("Enter Fighters", this, DialogFlags.Modal, Stock.Ok, 200, Stock.Cancel, 400);
+                popupFighters.BorderWidth = 4;
+                //popupFighters.SetResponseSensitive((ResponseType) 200, false);
+
+                HBox hbox = new HBox(false, 8);
+                hbox.BorderWidth = 8;
+                popupFighters.VBox.PackStart(hbox, false, false, 0);
+
+                Image stock = new Image(Stock.DialogQuestion, IconSize.Dialog);
+                hbox.PackStart(stock, false, false, 0);
+
+                Table table = new Table(2, 2, false);
+                table.RowSpacing = 4;
+                table.ColumnSpacing = 4;
+                hbox.PackStart(table, true, true, 0);
+
+                Label label = new Label("Fighter 1");
+                table.Attach(label, 0, 1, 0, 1);
+                Entry entryFighter1 = new Entry();
+                table.Attach(entryFighter1, 1, 2, 0, 1);
+
+                label = new Label("Fighter 2");
+                table.Attach(label, 0, 1, 1, 2);
+                Entry entryFighter2 = new Entry();
+                table.Attach(entryFighter2, 1, 2, 1, 2);
+
+                entryFighter1.MaxLength = 40;
+                entryFighter2.MaxLength = 40;
+
+                hbox.ShowAll();
+
+                int response_value2 = popupFighters.Run();
+                if (response_value2 == 200)
+                {
+                    this.main_Card = new CombatSportsScore.ScoreCard(Convert.ToByte(comboNumRounds.Entry.Text), entryFighter1.Text, entryFighter2.Text);
+                    PopulateUI();
+                }
+
+                popupFighters.Destroy();
+            }
+
+        }
+
+        popupNumRounds.Destroy();
     }
 
-    protected void OnDeleteScoreCardActionActivated(object sender, EventArgs e)
+
+    public void PopulateUI()
     {
+        this.labelScoreCardID.LabelProp += this.main_Card.ScoreID;
+        this.lblFighter1Name.LabelProp = "<b>" + this.main_Card.Fighter1.Name + "</b>";
+        this.lblFighter2Name.LabelProp = "<b>" + this.main_Card.Fighter2.Name + "</b>";
+        this.lblFighter1Name.UseMarkup = true;
+        this.lblFighter2Name.UseMarkup = true;
+        this.labelDate.LabelProp = this.main_Card.Date.ToShortDateString();
+        this.GtkScrolledWindow.Show();
+        this.frameTotalScore.Show();
+        this.textviewFightComment.Show();
+        this.statusbarFooter.Show();
+        //Re-Enable Save Option In the Menu
     }
 
 }

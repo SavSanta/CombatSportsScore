@@ -44,28 +44,38 @@ namespace CombatSportsScore
 
         public ScoreCard(byte numofrds, string fighter1, string fighter2)
         {
-            this.scoreID = GetNextScoreCardID();
-            this.rounds = new Round[numofrds];
-            this.fighter1 = new Fighter(fighter1);
-            this.fighter2 = new Fighter(fighter1);
+            this.ScoreID = GetNextScoreCardID();
+            this.Rounds = new Round[numofrds];
+            this.Fighter1 = new Fighter(fighter1);
+            this.Fighter2 = new Fighter(fighter2);
+            this.Date = DateTime.Now;
+            this.ScoreTitle = $"{Fighter1.Name} vs {Fighter2.Name}";
         }
+
+        public DateTime Date { get => date; set => date = value; }
+        public ushort[] ScoreTotal { get => scoreTotal; set => scoreTotal = value; }
+        public Round[] Rounds { get => rounds; set => rounds = value; }
+        public string ScoreTitle { get => scoreTitle; set => scoreTitle = value; }
+        public Fighter Fighter1 { get => fighter1; set => fighter1 = value; }
+        public Fighter Fighter2 { get => fighter2; set => fighter2 = value; }
+        public int ScoreID { get => scoreID; set => scoreID = value; }
 
         public void TallyScoreCard() 
         {
 
-            if ( !(this.rounds is null) || this.rounds.Length != 0 )
+            if ( !(this.Rounds is null) || this.Rounds.Length != 0 )
             {
                 ushort tally1 = 0;
                 ushort tally2 = 0;
 
-                for (int i = 0; i < this.rounds.Length; i++)
+                for (int i = 0; i < this.Rounds.Length; i++)
                 {
-                    tally1 += this.rounds[i].Score1;
-                    tally2 += this.rounds[i].Score2;
+                    tally1 += this.Rounds[i].Score1;
+                    tally2 += this.Rounds[i].Score2;
                 }
 
-                this.scoreTotal = new ushort[] { tally1, tally2 };
-                WriteLine("Score is {}: {} to {}: {}", this.fighter1, this.scoreTotal[0], this.fighter2,this.scoreTotal[1]);
+                this.ScoreTotal = new ushort[] { tally1, tally2 };
+                WriteLine("Score is {}: {} to {}: {}", this.Fighter1, this.ScoreTotal[0], this.Fighter2, this.ScoreTotal[1]);
 
             }
 

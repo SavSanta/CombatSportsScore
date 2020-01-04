@@ -25,7 +25,6 @@ namespace CombatSportsScore
 			global::Stetic.Gui.Initialize(this);
 			// Widget CombatSportsScore.RDWidget
 			global::Stetic.BinContainer.Attach(this);
-			this.WidthRequest = 546;
 			this.Name = "CombatSportsScore.RDWidget";
 			// Container child CombatSportsScore.RDWidget.Gtk.Container+ContainerChild
 			this.table = new global::Gtk.Table(((uint)(2)), ((uint)(3)), false);
@@ -51,7 +50,7 @@ namespace CombatSportsScore
 			w2.BottomAttach = ((uint)(2));
 			w2.LeftAttach = ((uint)(2));
 			w2.RightAttach = ((uint)(3));
-			w2.XOptions = ((global::Gtk.AttachOptions)(6));
+			w2.XOptions = ((global::Gtk.AttachOptions)(4));
 			w2.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table.Gtk.Table+TableChild
 			this.hboxtoggle = new global::Gtk.HBox();
@@ -63,50 +62,54 @@ namespace CombatSportsScore
 			w3.SetTip(this.toggleKD, "If Round Has A KnockDown", "If Round Has A KnockDown");
 			this.toggleKD.CanFocus = true;
 			this.toggleKD.Name = "toggleKD";
-			this.toggleKD.UseUnderline = true;
-			this.toggleKD.Label = "Knockdown";
+			global::Gtk.Image w4 = new global::Gtk.Image();
+			w4.Pixbuf = global::Stetic.IconLoader.LoadIcon(this, "stock_bottom", global::Gtk.IconSize.Menu);
+			this.toggleKD.Image = w4;
 			this.hboxtoggle.Add(this.toggleKD);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hboxtoggle[this.toggleKD]));
-			w4.Position = 0;
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hboxtoggle[this.toggleKD]));
+			w5.Position = 0;
 			// Container child hboxtoggle.Gtk.Box+BoxChild
 			this.toggleFoul = new global::Gtk.ToggleButton();
 			w3.SetTip(this.toggleFoul, "Round Has Points Taken", "Round Has Points Taken");
 			this.toggleFoul.CanFocus = true;
 			this.toggleFoul.Name = "toggleFoul";
-			this.toggleFoul.UseUnderline = true;
-			this.toggleFoul.Label = "Point";
+			global::Gtk.Image w6 = new global::Gtk.Image();
+			w6.Pixbuf = global::Stetic.IconLoader.LoadIcon(this, "gtk-media-record", global::Gtk.IconSize.Menu);
+			this.toggleFoul.Image = w6;
 			this.hboxtoggle.Add(this.toggleFoul);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hboxtoggle[this.toggleFoul]));
-			w5.Position = 1;
+			global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hboxtoggle[this.toggleFoul]));
+			w7.Position = 1;
 			// Container child hboxtoggle.Gtk.Box+BoxChild
 			this.toggleSwing = new global::Gtk.ToggleButton();
 			w3.SetTip(this.toggleSwing, "You Consider Round Swingable To Either Fighter", "You Consider Round Swingable To Either Fighter");
 			this.toggleSwing.CanFocus = true;
 			this.toggleSwing.Name = "toggleSwing";
-			this.toggleSwing.UseUnderline = true;
-			this.toggleSwing.Label = "Swing";
+			global::Gtk.Image w8 = new global::Gtk.Image();
+			w8.Pixbuf = global::Stetic.IconLoader.LoadIcon(this, "stock_text_justify", global::Gtk.IconSize.Menu);
+			this.toggleSwing.Image = w8;
 			this.hboxtoggle.Add(this.toggleSwing);
-			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hboxtoggle[this.toggleSwing]));
-			w6.Position = 2;
+			global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hboxtoggle[this.toggleSwing]));
+			w9.Position = 2;
 			this.table.Add(this.hboxtoggle);
-			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table[this.hboxtoggle]));
-			w7.TopAttach = ((uint)(1));
-			w7.BottomAttach = ((uint)(2));
-			w7.LeftAttach = ((uint)(1));
-			w7.RightAttach = ((uint)(2));
-			w7.XOptions = ((global::Gtk.AttachOptions)(6));
-			w7.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w10 = ((global::Gtk.Table.TableChild)(this.table[this.hboxtoggle]));
+			w10.TopAttach = ((uint)(1));
+			w10.BottomAttach = ((uint)(2));
+			w10.LeftAttach = ((uint)(1));
+			w10.RightAttach = ((uint)(2));
+			w10.XOptions = ((global::Gtk.AttachOptions)(6));
+			w10.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table.Gtk.Table+TableChild
 			this.labelRound = new global::Gtk.Label();
+			this.labelRound.WidthRequest = 462;
 			this.labelRound.Name = "labelRound";
 			this.labelRound.LabelProp = "<b>Round </b>";
 			this.labelRound.UseMarkup = true;
 			this.labelRound.Justify = ((global::Gtk.Justification)(2));
 			this.table.Add(this.labelRound);
-			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table[this.labelRound]));
-			w8.RightAttach = ((uint)(3));
-			w8.XOptions = ((global::Gtk.AttachOptions)(7));
-			w8.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table[this.labelRound]));
+			w11.RightAttach = ((uint)(3));
+			w11.XOptions = ((global::Gtk.AttachOptions)(2));
+			w11.YOptions = ((global::Gtk.AttachOptions)(4));
 			this.Add(this.table);
 			if ((this.Child != null))
 			{

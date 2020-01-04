@@ -44,7 +44,14 @@ namespace CombatSportsScore
 
         public Fighter(string name)
         {
-            this.Name = name;
+            if (name != "")
+            {
+                this.Name = name;
+            }
+            else
+            {
+                this.Name = " A Fighter"; 
+            }
         }
 
         public string Name { get => this.name; set => this.name = value; }

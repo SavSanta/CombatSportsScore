@@ -125,6 +125,7 @@ public partial class MainWindow
 		w1.Add(this.DeleteScoreCardAction, null);
 		this.UIManager.InsertActionGroup(w1, 0);
 		this.AddAccelGroup(this.UIManager.AccelGroup);
+		this.WidthRequest = 455;
 		this.Name = "MainWindow";
 		this.Title = "Combat Sports Scorecard";
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
@@ -186,7 +187,6 @@ public partial class MainWindow
 		this.labelDate = new global::Gtk.Label();
 		this.labelDate.Name = "labelDate";
 		this.labelDate.LabelProp = "MM-DD-YYYY";
-		this.labelDate.UseMarkup = true;
 		this.GtkAlignmentDate.Add(this.labelDate);
 		this.frameDate.Add(this.GtkAlignmentDate);
 		this.GtkLabel3 = new global::Gtk.Label();
@@ -194,6 +194,7 @@ public partial class MainWindow
 		this.GtkLabel3.Xpad = 113;
 		this.GtkLabel3.LabelProp = "<b> Date </b>";
 		this.GtkLabel3.UseMarkup = true;
+		this.GtkLabel3.Justify = ((global::Gtk.Justification)(2));
 		this.frameDate.LabelWidget = this.GtkLabel3;
 		this.hboxFightDateHeader.Add(this.frameDate);
 		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hboxFightDateHeader[this.frameDate]));
@@ -317,7 +318,7 @@ public partial class MainWindow
 		// Container child statusbarFooter.Gtk.Box+BoxChild
 		this.labelScoreCardID = new global::Gtk.Label();
 		this.labelScoreCardID.Name = "labelScoreCardID";
-		this.labelScoreCardID.LabelProp = "ID: x";
+		this.labelScoreCardID.LabelProp = "ID: ";
 		this.statusbarFooter.Add(this.labelScoreCardID);
 		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.statusbarFooter[this.labelScoreCardID]));
 		w24.Position = 0;
@@ -344,9 +345,12 @@ public partial class MainWindow
 		{
 			this.Child.ShowAll();
 		}
-		this.DefaultWidth = 566;
+		this.DefaultWidth = 492;
 		this.DefaultHeight = 556;
+		this.GtkScrolledWindow.Hide();
+		this.frameTotalScore.Hide();
 		this.textviewFightComment.Hide();
+		this.statusbarFooter.Hide();
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.ExitAction1.Activated += new global::System.EventHandler(this.OnExit);
