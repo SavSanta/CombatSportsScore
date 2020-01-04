@@ -69,7 +69,7 @@ namespace CombatSportsScore
         public void TallyScoreCard() 
         {
 
-            if ( !(this.Rounds is null) || this.Rounds.Length != 0 )
+            if ( this.Rounds != null || this.Rounds.Length != 0 )
             {
                 ushort tally1 = 0;
                 ushort tally2 = 0;
