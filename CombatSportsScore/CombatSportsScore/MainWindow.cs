@@ -127,6 +127,7 @@ public partial class MainWindow : Gtk.Window
         this.lblFighter1Name.UseMarkup = true;
         this.lblFighter2Name.UseMarkup = true;
         this.labelDate.LabelProp = this.main_Card.Date.ToShortDateString();
+        this.entryScoreCardName.Text = this.main_Card.ScoreTitle;
         this.GtkScrolledWindow.Show();
         this.frameTotalScore.Show();
         this.textviewFightComment.Show();
