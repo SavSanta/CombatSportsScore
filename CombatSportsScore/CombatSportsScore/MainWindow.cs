@@ -106,7 +106,7 @@ public partial class MainWindow : Gtk.Window
                 int response_value2 = popupFighters.Run();
                 if (response_value2 == 200)
                 {
-                    this.main_Card = new CombatSportsScore.ScoreCard(Convert.ToByte(comboNumRounds.Entry.Text), entryFighter1.Text, entryFighter2.Text);
+                    this.main_Card = new CombatSportsScore.ScoreCard(Convert.ToByte(comboNumRounds.Entry.Text), entryFighter1.Text.Trim(), entryFighter2.Text.Trim());
                     PopulateUI();
                 }
 
