@@ -55,7 +55,7 @@ public partial class MainWindow
 
 	private global::Gtk.ScrolledWindow GtkScrolledWindow;
 
-	private global::Gtk.Table table1;
+	private global::Gtk.Table rdtable;
 
 	private global::CombatSportsScore.RDWidget rdwidget1;
 
@@ -233,19 +233,19 @@ public partial class MainWindow
 		global::Gtk.Viewport w12 = new global::Gtk.Viewport();
 		w12.ShadowType = ((global::Gtk.ShadowType)(0));
 		// Container child GtkViewport.Gtk.Container+ContainerChild
-		this.table1 = new global::Gtk.Table(((uint)(1)), ((uint)(1)), false);
-		this.table1.Name = "table1";
-		this.table1.RowSpacing = ((uint)(1));
-		// Container child table1.Gtk.Table+TableChild
+		this.rdtable = new global::Gtk.Table(((uint)(1)), ((uint)(1)), false);
+		this.rdtable.Name = "rdtable";
+		this.rdtable.RowSpacing = ((uint)(1));
+		// Container child rdtable.Gtk.Table+TableChild
 		this.rdwidget1 = new global::CombatSportsScore.RDWidget();
 		this.rdwidget1.WidthRequest = 546;
 		this.rdwidget1.Events = ((global::Gdk.EventMask)(256));
 		this.rdwidget1.Name = "rdwidget1";
-		this.table1.Add(this.rdwidget1);
-		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.table1[this.rdwidget1]));
-		w13.XOptions = ((global::Gtk.AttachOptions)(4));
+		this.rdtable.Add(this.rdwidget1);
+		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.rdtable[this.rdwidget1]));
+		w13.XOptions = ((global::Gtk.AttachOptions)(0));
 		w13.YOptions = ((global::Gtk.AttachOptions)(4));
-		w12.Add(this.table1);
+		w12.Add(this.rdtable);
 		this.GtkScrolledWindow.Add(w12);
 		this.vbox1.Add(this.GtkScrolledWindow);
 		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.GtkScrolledWindow]));

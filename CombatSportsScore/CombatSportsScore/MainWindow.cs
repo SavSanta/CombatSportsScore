@@ -24,7 +24,6 @@ using Gtk;
 public partial class MainWindow : Gtk.Window
 {
 
-   
     private CombatSportsScore.ScoreCard main_Card;
     private CombatSportsScore.Round[] main_Rounds;
 
@@ -47,6 +46,7 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnDeleteScoreCardActionActivated(object sender, EventArgs e)
     {
+        DePopulateUI();
     }
 
     protected void OnNewScoreCardActionActivated(object sender, EventArgs e)
@@ -107,6 +107,7 @@ public partial class MainWindow : Gtk.Window
                 if (response_value2 == 200)
                 {
                     this.main_Card = new CombatSportsScore.ScoreCard(Convert.ToByte(comboNumRounds.Entry.Text), entryFighter1.Text.Trim(), entryFighter2.Text.Trim());
+                    PopulateRDTable(Convert.ToByte(comboNumRounds.Entry.Text));
                     PopulateUI();
                 }
 
@@ -121,11 +122,12 @@ public partial class MainWindow : Gtk.Window
 
     public void PopulateUI()
     {
-        this.labelScoreCardID.LabelProp += this.main_Card.ScoreID;
+        this.labelScoreCardID.LabelProp = "ID: " + this.main_Card.ScoreID;
         this.lblFighter1Name.LabelProp = "<b>" + this.main_Card.Fighter1.Name + "</b>";
         this.lblFighter2Name.LabelProp = "<b>" + this.main_Card.Fighter2.Name + "</b>";
         this.lblFighter1Name.UseMarkup = true;
         this.lblFighter2Name.UseMarkup = true;
+
         this.labelDate.LabelProp = this.main_Card.Date.ToShortDateString();
         this.entryScoreCardName.Text = this.main_Card.ScoreTitle;
         this.GtkScrolledWindow.Show();
@@ -138,16 +140,42 @@ public partial class MainWindow : Gtk.Window
     public void DePopulateUI()
     {
         this.main_Card = new CombatSportsScore.ScoreCard();
-        this.labelScoreCardID.LabelProp += this.main_Card.ScoreID;
+        this.labelScoreCardID.LabelProp = "ID: x";
         this.lblFighter1Name.LabelProp = this.main_Card.Fighter1.Name;
         this.lblFighter2Name.LabelProp = this.main_Card.Fighter2.Name;
-        this.labelDate.LabelProp = this.main_Card.Date.ToShortDateString();
+        this.labelDate.LabelProp = "MM-DD-YYYY";
         this.entryScoreCardName.Text = this.main_Card.ScoreTitle;
         this.GtkScrolledWindow.Hide();
         this.frameTotalScore.Hide();
         this.textviewFightComment.Hide();
         this.statusbarFooter.Hide();
         //De-Enable Save Option In the Menu
+    }
+
+
+    public void PopulateRDTable(byte numofrounds) 
+    {
+
+        this.rdtable.Resize(numofrounds, 1);
+
+        for (uint i = 1; i < numofrounds; i++)
+        {
+            CombatSportsScore.RDWidget tark = new CombatSportsScore.RDWidget();
+            this.tark.WidthRequest = 546;
+            this.tark.Events = ((global::Gdk.EventMask)(256));
+            this.tark.Name = "rdwidget1"+i;
+            //this.rdtable.Add(this.rdwidget1);
+            //Table.TableChild ww13 = ((Table.TableChild)(rdtable[rdwidget1]));
+            //ww13.XOptions = 0;
+            //ww13.YOptions = (AttachOptions) 4;
+            this.rdtable.Attach(rdwidget1, 0 + i, 1 + i, 0, 1);
+            rdtable.ShowAll();
+        }
+
+
+
+
+
     }
 
 }
