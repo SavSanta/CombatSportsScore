@@ -61,7 +61,7 @@ public partial class MainWindow
 
 	private global::Gtk.Frame frameTotalScore;
 
-	private global::Gtk.Alignment GtkAlignment;
+	private global::Gtk.Alignment GtkAlignment3;
 
 	private global::Gtk.HPaned hpaneTotalScore;
 
@@ -226,9 +226,7 @@ public partial class MainWindow
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-		this.GtkScrolledWindow.HscrollbarPolicy = ((global::Gtk.PolicyType)(2));
-		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(3));
-		this.GtkScrolledWindow.WindowPlacement = ((global::Gtk.CornerType)(3));
+		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
 		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
 		global::Gtk.Viewport w12 = new global::Gtk.Viewport();
 		w12.ShadowType = ((global::Gtk.ShadowType)(0));
@@ -238,13 +236,13 @@ public partial class MainWindow
 		this.rdtable.RowSpacing = ((uint)(1));
 		// Container child rdtable.Gtk.Table+TableChild
 		this.rdwidget1 = new global::CombatSportsScore.RDWidget();
-		this.rdwidget1.WidthRequest = 546;
 		this.rdwidget1.Events = ((global::Gdk.EventMask)(256));
 		this.rdwidget1.Name = "rdwidget1";
+		this.rdwidget1.RoundNumber = "1";
 		this.rdtable.Add(this.rdwidget1);
 		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.rdtable[this.rdwidget1]));
 		w13.XOptions = ((global::Gtk.AttachOptions)(0));
-		w13.YOptions = ((global::Gtk.AttachOptions)(4));
+		w13.YOptions = ((global::Gtk.AttachOptions)(0));
 		w12.Add(this.rdtable);
 		this.GtkScrolledWindow.Add(w12);
 		this.vbox1.Add(this.GtkScrolledWindow);
@@ -255,14 +253,14 @@ public partial class MainWindow
 		this.frameTotalScore.Name = "frameTotalScore";
 		this.frameTotalScore.BorderWidth = ((uint)(2));
 		// Container child frameTotalScore.Gtk.Container+ContainerChild
-		this.GtkAlignment = new global::Gtk.Alignment(0F, 0F, 1F, 1F);
-		this.GtkAlignment.Name = "GtkAlignment";
-		this.GtkAlignment.LeftPadding = ((uint)(4));
-		// Container child GtkAlignment.Gtk.Container+ContainerChild
+		this.GtkAlignment3 = new global::Gtk.Alignment(0F, 0F, 1F, 1F);
+		this.GtkAlignment3.Name = "GtkAlignment3";
+		this.GtkAlignment3.LeftPadding = ((uint)(4));
+		// Container child GtkAlignment3.Gtk.Container+ContainerChild
 		this.hpaneTotalScore = new global::Gtk.HPaned();
 		this.hpaneTotalScore.CanFocus = true;
 		this.hpaneTotalScore.Name = "hpaneTotalScore";
-		this.hpaneTotalScore.Position = 260;
+		this.hpaneTotalScore.Position = 219;
 		this.hpaneTotalScore.BorderWidth = ((uint)(10));
 		// Container child hpaneTotalScore.Gtk.Paned+PanedChild
 		this.labelTotalScore1 = new global::Gtk.Label();
@@ -279,8 +277,8 @@ public partial class MainWindow
 		this.labelTotalScore2.LabelProp = "<span fgcolor=\"blue\" size=\"x-large\" weight=\"heavy\" > 0 </span>";
 		this.labelTotalScore2.UseMarkup = true;
 		this.hpaneTotalScore.Add(this.labelTotalScore2);
-		this.GtkAlignment.Add(this.hpaneTotalScore);
-		this.frameTotalScore.Add(this.GtkAlignment);
+		this.GtkAlignment3.Add(this.hpaneTotalScore);
+		this.frameTotalScore.Add(this.GtkAlignment3);
 		this.GtkLabelScore = new global::Gtk.Label();
 		this.GtkLabelScore.Name = "GtkLabelScore";
 		this.GtkLabelScore.LabelProp = "<b> Score </b>";
@@ -347,7 +345,6 @@ public partial class MainWindow
 		}
 		this.DefaultWidth = 492;
 		this.DefaultHeight = 556;
-		this.GtkScrolledWindow.Hide();
 		this.frameTotalScore.Hide();
 		this.textviewFightComment.Hide();
 		this.statusbarFooter.Hide();

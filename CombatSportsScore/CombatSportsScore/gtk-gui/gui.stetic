@@ -226,10 +226,7 @@
         <child>
           <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
             <property name="MemberName" />
-            <property name="Visible">False</property>
-            <property name="HscrollbarPolicy">Never</property>
-            <property name="ShadowType">EtchedIn</property>
-            <property name="WindowPlacement">BottomRight</property>
+            <property name="ShadowType">In</property>
             <child>
               <widget class="Gtk.Viewport" id="GtkViewport">
                 <property name="MemberName" />
@@ -242,18 +239,18 @@
                     <child>
                       <widget class="CombatSportsScore.RDWidget" id="rdwidget1">
                         <property name="MemberName" />
-                        <property name="WidthRequest">546</property>
                         <property name="Events">ButtonPressMask</property>
+                        <property name="RoundNumber">1</property>
                       </widget>
                       <packing>
                         <property name="AutoSize">False</property>
                         <property name="XOptions">0</property>
-                        <property name="YOptions">Fill</property>
+                        <property name="YOptions">0</property>
                         <property name="XExpand">False</property>
                         <property name="XFill">False</property>
                         <property name="XShrink">False</property>
                         <property name="YExpand">False</property>
-                        <property name="YFill">True</property>
+                        <property name="YFill">False</property>
                         <property name="YShrink">False</property>
                       </packing>
                     </child>
@@ -273,7 +270,7 @@
             <property name="Visible">False</property>
             <property name="BorderWidth">2</property>
             <child>
-              <widget class="Gtk.Alignment" id="GtkAlignment">
+              <widget class="Gtk.Alignment" id="GtkAlignment3">
                 <property name="MemberName" />
                 <property name="Xalign">0</property>
                 <property name="Yalign">0</property>
@@ -282,7 +279,7 @@
                   <widget class="Gtk.HPaned" id="hpaneTotalScore">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
-                    <property name="Position">260</property>
+                    <property name="Position">219</property>
                     <property name="BorderWidth">10</property>
                     <child>
                       <widget class="Gtk.Label" id="labelTotalScore1">

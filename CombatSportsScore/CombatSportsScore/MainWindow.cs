@@ -163,15 +163,11 @@ public partial class MainWindow : Gtk.Window
             CombatSportsScore.RDWidget tark = new CombatSportsScore.RDWidget();
             tark.WidthRequest = 546;
             tark.Events = ((global::Gdk.EventMask)(256));
-            tark.Name = "rdwidget1"+i;
-            //this.rdtable.Add(this.rdwidget1);
-            //Table.TableChild ww13 = ((Table.TableChild)(rdtable[rdwidget1]));
-            //ww13.XOptions = 0;
-            //ww13.YOptions = (AttachOptions) 4;
-            this.rdtable.Attach(tark, 0 + i, 1 + i, 0, 1);
+            tark.Name = "rdwidget" + (i + 1);
+            tark.RoundNumber = Convert.ToString(i + 1);
+            this.rdtable.Attach(tark, 0, 1, 0 + i, 1 + i);
             rdtable.ShowAll();
         }
-
 
 
 
