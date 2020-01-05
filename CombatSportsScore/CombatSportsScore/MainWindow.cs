@@ -110,17 +110,7 @@ public partial class MainWindow : Gtk.Window
 
                     PopulateRDTable(Convert.ToByte(comboNumRounds.Entry.Text));
                     PopulateUI();
-                    Console.WriteLine(this.rdtable.NRows);
-                    Console.WriteLine(this.rdtable.AllChildren);
-                    Console.WriteLine(this.rdtable.Children);
-                    Console.WriteLine(this.rdtable.Children[0]);
-                    //TextWriterTraceListener tr1 = new TextWriterTraceListener(System.Console.Out);
-                    //TextWriterTraceListener tr2 = new TextWriterTraceListener(System.IO.File.CreateText("/tmp/bugs.txt"));
-                    //Debug.Listeners.Add(tr1);
-                    //Debug.Listeners.Add(tr2);
-                    //foreach (CombatSportsScore.RDWidget x in this.rdtable.Children) { Console.WriteLine(x.FighterScore1); }
-
-
+                    PopulateTotals();
 
                 }
 
@@ -182,6 +172,21 @@ public partial class MainWindow : Gtk.Window
             rdtable.ShowAll();
         }
     }
+
+    public void PopulateTotals()
+    {
+        int total1 = 0;
+        int total2 = 0;
+
+        foreach (CombatSportsScore.RDWidget i in this.rdwidget) { total1 += i.FighterScore1; }
+        foreach (CombatSportsScore.RDWidget i in this.rdwidget) { total2 += i.FighterScore2; }
+
+        this.labelTotalScore1.Markup = "<span fgcolor='red' size='x-large' weight='heavy'>" + total1.ToString() +  "</span>";
+        this.labelTotalScore2.Markup = "<span fgcolor='blue' size='x-large' weight='heavy'>" + total2.ToString() + "</span>";
+
+
+    }
+
 
 }
 
