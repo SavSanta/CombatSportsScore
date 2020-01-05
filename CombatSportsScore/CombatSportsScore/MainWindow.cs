@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using Gtk;
+using System.Diagnostics;
 
 public partial class MainWindow : Gtk.Window
 {
@@ -109,6 +110,18 @@ public partial class MainWindow : Gtk.Window
 
                     PopulateRDTable(Convert.ToByte(comboNumRounds.Entry.Text));
                     PopulateUI();
+                    Console.WriteLine(this.rdtable.NRows);
+                    Console.WriteLine(this.rdtable.AllChildren);
+                    Console.WriteLine(this.rdtable.Children);
+                    Console.WriteLine(this.rdtable.Children[0]);
+                    //TextWriterTraceListener tr1 = new TextWriterTraceListener(System.Console.Out);
+                    //TextWriterTraceListener tr2 = new TextWriterTraceListener(System.IO.File.CreateText("/tmp/bugs.txt"));
+                    //Debug.Listeners.Add(tr1);
+                    //Debug.Listeners.Add(tr2);
+                    //foreach (CombatSportsScore.RDWidget x in this.rdtable.Children) { Console.WriteLine(x.FighterScore1); }
+
+
+
                 }
 
                 popupFighters.Destroy();
@@ -123,6 +136,7 @@ public partial class MainWindow : Gtk.Window
     public void PopulateUI()
     {
         this.labelScoreCardID.LabelProp = "ID: " + this.main_Card.ScoreID;
+        // Sidenote - Investigate changing both sets of <b> to <x-large> breaks a lot of the other labels
         this.lblFighter1Name.LabelProp = "<b>" + this.main_Card.Fighter1.Name + "</b>";
         this.lblFighter2Name.LabelProp = "<b>" + this.main_Card.Fighter2.Name + "</b>";
         this.lblFighter1Name.UseMarkup = true;
@@ -155,23 +169,18 @@ public partial class MainWindow : Gtk.Window
 
     public void PopulateRDTable(byte numofrounds) 
     {
-
         this.rdtable.Resize(numofrounds, 1);
+        this.rdwidget = new CombatSportsScore.RDWidget[numofrounds];
 
-        for (uint i = 1; i < numofrounds; i++)
+        for (uint i = 0; i < numofrounds; i++)
         {
-            CombatSportsScore.RDWidget tark = new CombatSportsScore.RDWidget();
-            tark.Events = ((global::Gdk.EventMask)(256));
-            tark.Name = "rdwidget" + (i + 1);
-            tark.RoundNumber = Convert.ToString(i + 1);
-            this.rdtable.Attach(tark, 0, 1, 0 + i, 1 + i, (AttachOptions)1, (AttachOptions)0 , 0, 0);
+            this.rdwidget[i] = new CombatSportsScore.RDWidget();
+            this.rdwidget[i].Events = ((global::Gdk.EventMask)(256));
+            this.rdwidget[i].Name = "rdwidget" + (i + 1);
+            this.rdwidget[i].RoundNumber = Convert.ToString(i + 1);
+            this.rdtable.Attach(this.rdwidget[i], 0, 1, 0 + i, 1 + i, (AttachOptions)1, (AttachOptions)0 , 0, 0);
             rdtable.ShowAll();
         }
-
-
-
-
-
     }
 
 }
