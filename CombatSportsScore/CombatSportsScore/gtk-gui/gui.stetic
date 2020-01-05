@@ -14,15 +14,16 @@
         <property name="Label" translatable="yes">File</property>
         <property name="ShortLabel" translatable="yes">File</property>
       </action>
-      <action id="LoadDatabaseAction">
+      <action id="LoadScoreCardAction">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Load Database</property>
-        <property name="ShortLabel" translatable="yes">Load Database</property>
+        <property name="Label">Load ScoreCard</property>
+        <property name="ShortLabel">Load ScoreCard</property>
       </action>
-      <action id="SaveDatabaseAction">
+      <action id="SaveScoreCardAction">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Save Database</property>
-        <property name="ShortLabel" translatable="yes">Save Database</property>
+        <property name="Label">Save ScoreCard</property>
+        <property name="Sensitive">False</property>
+        <property name="ShortLabel">Save ScoreCard</property>
       </action>
       <action id="ExitAction">
         <property name="Type">Action</property>
@@ -43,14 +44,15 @@
       <action id="NewScoreCardAction">
         <property name="Type">Action</property>
         <property name="Accelerator">&lt;Primary&gt;n</property>
-        <property name="Label" translatable="yes">New ScoreCard</property>
-        <property name="ShortLabel" translatable="yes">New ScoreCard</property>
+        <property name="Label">New ScoreCard</property>
+        <property name="ShortLabel">New ScoreCard</property>
         <signal name="Activated" handler="OnNewScoreCardActionActivated" />
       </action>
       <action id="DeleteScoreCardAction">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Delete ScoreCard</property>
-        <property name="ShortLabel" translatable="yes">Delete ScoreCard</property>
+        <property name="Label">Delete ScoreCard</property>
+        <property name="ShortLabel">Delete ScoreCard</property>
+        <property name="Visible">False</property>
         <signal name="Activated" handler="OnDeleteScoreCardActionActivated" />
       </action>
     </action-group>
@@ -77,8 +79,8 @@
                   <node type="Menu" action="FileAction">
                     <node type="Menuitem" action="NewScoreCardAction" />
                     <node type="Menuitem" action="DeleteScoreCardAction" />
-                    <node type="Menuitem" action="LoadDatabaseAction" />
-                    <node type="Menuitem" action="SaveDatabaseAction" />
+                    <node type="Menuitem" action="LoadScoreCardAction" />
+                    <node type="Menuitem" action="SaveScoreCardAction" />
                     <node type="Menuitem" action="ExitAction" />
                   </node>
                   <node type="Menu" action="HelpAction">

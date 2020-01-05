@@ -25,6 +25,7 @@
 //  THE SOFTWARE.
 
 using System;
+using System.Linq;
 using static System.Console;
 
 namespace CombatSportsScore
@@ -32,7 +33,7 @@ namespace CombatSportsScore
     public class ScoreCard
     {
         private static int currentScoreID;
-
+         
         private int scoreID;
         private string scoreTitle;
         private DateTime date;
@@ -51,7 +52,8 @@ namespace CombatSportsScore
         public ScoreCard(byte numofrds, string fighter1, string fighter2)
         {
             this.ScoreID = GetNextScoreCardID();
-            this.Rounds = new Round[numofrds];
+            // Create array and initialize each element, since Array of Custom Classes default to "null".
+            this.Rounds = Enumerable.Range(0, numofrds).Select(i => new Round()).ToArray();
             this.Fighter1 = new Fighter(fighter1);
             this.Fighter2 = new Fighter(fighter2);
             this.Date = DateTime.Now;
