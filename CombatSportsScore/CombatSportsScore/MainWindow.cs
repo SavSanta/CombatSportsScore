@@ -61,6 +61,14 @@ public partial class MainWindow : Gtk.Window
         }
     }
 
+    protected void OnBufferFightCommentUpdate(object sender, EventArgs args)
+    {
+        if (this.main_Card != null)
+        {
+            this.main_Card.FightComment = (sender as TextBuffer).Text;
+        }
+    }
+
     protected void OnNewScoreCardActionActivated(object sender, EventArgs e)
     {
 
