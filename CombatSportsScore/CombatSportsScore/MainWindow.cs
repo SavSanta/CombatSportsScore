@@ -49,6 +49,12 @@ public partial class MainWindow : Gtk.Window
         DePopulateUI();
     }
 
+    void Handle_WidgetEvent(object o, Gtk.WidgetEventArgs args)
+    {
+        System.Console.WriteLine(args.Event);
+    }
+
+
     protected void OnNewScoreCardActionActivated(object sender, EventArgs e)
     {
 
@@ -169,6 +175,7 @@ public partial class MainWindow : Gtk.Window
             this.rdwidget[i].Name = "rdwidget" + (i + 1);
             this.rdwidget[i].RoundNumber = Convert.ToString(i + 1);
             this.rdtable.Attach(this.rdwidget[i], 0, 1, 0 + i, 1 + i, (AttachOptions)1, (AttachOptions)0 , 0, 0);
+            this.rdwidget[i].WidgetEvent += Handle_WidgetEvent;
             rdtable.ShowAll();
         }
     }

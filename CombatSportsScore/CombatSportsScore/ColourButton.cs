@@ -100,6 +100,7 @@ namespace CombatSportsScore
                 nextval = (Array.IndexOf(points, this.lblpoints.Text) + 1);
                 this.lblpoints.Text = points[nextval];
             }
+            
         }
 
         private void ChangeColor(byte sel)
