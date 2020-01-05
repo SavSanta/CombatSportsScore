@@ -328,5 +328,7 @@ public partial class MainWindow
 		this.NewScoreCardAction.Activated += new System.EventHandler(OnNewScoreCardActionActivated);
 		this.DeleteScoreCardAction.Activated += new global::System.EventHandler(this.OnDeleteScoreCardActionActivated);
 	    this.entryScoreCardName.Changed += new System.EventHandler(OnEntryScoreCardNameUpdate);
+        this.textviewFightComment.Buffer.UserActionEnded += new System.EventHandler(OnBufferFightCommentUpdate);
+
     }
 }
