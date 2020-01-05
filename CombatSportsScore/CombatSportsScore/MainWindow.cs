@@ -112,8 +112,11 @@ public partial class MainWindow : Gtk.Window
                 int response_value2 = popupFighters.Run();
                 if (response_value2 == 200)
                 {
-                    this.main_Card = new CombatSportsScore.ScoreCard(Convert.ToByte(comboNumRounds.Entry.Text), entryFighter1.Text.Trim(), entryFighter2.Text.Trim());
 
+                    DePopulateUI();
+                    DePopulateRDTable();
+
+                    this.main_Card = new CombatSportsScore.ScoreCard(Convert.ToByte(comboNumRounds.Entry.Text), entryFighter1.Text.Trim(), entryFighter2.Text.Trim());
                     PopulateRDTable(Convert.ToByte(comboNumRounds.Entry.Text));
                     PopulateUI();
                     PopulateTotals();
@@ -149,6 +152,7 @@ public partial class MainWindow : Gtk.Window
 
     public void DePopulateUI()
     {
+        DePopulateRDTable();
         this.main_Card = new CombatSportsScore.ScoreCard();
         this.labelScoreCardID.LabelProp = "ID: x";
         this.lblFighter1Name.LabelProp = this.main_Card.Fighter1.Name;
@@ -178,6 +182,25 @@ public partial class MainWindow : Gtk.Window
             this.rdwidget[i].WidgetEvent += OnRDWidgetExposureEvent;
             rdtable.ShowAll();
         }
+    }
+
+    public void DePopulateRDTable()
+    {
+        try
+        {
+            foreach (CombatSportsScore.RDWidget i in this.rdwidget)
+            {
+                this.rdtable.Remove(i);
+            }
+
+            this.rdwidget = new CombatSportsScore.RDWidget[1];
+            this.rdtable.Resize(1, 1);
+        }
+        catch (NullReferenceException ex)
+        {
+            Console.WriteLine($"NullReferenceException Occured.\n No Existing ScoreCard to Depopulate \n{ex}");
+        }
+
     }
 
     public void PopulateTotals()
