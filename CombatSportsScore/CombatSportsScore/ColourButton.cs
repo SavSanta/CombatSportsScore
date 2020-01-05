@@ -74,7 +74,7 @@ namespace CombatSportsScore
             lblpoints = new Label();
             Pango.FontDescription desc = Pango.FontDescription.FromString("Bebas Neue 14");
             lblpoints.ModifyFont(desc);
-            lblpoints.Text = points[0];
+            lblpoints.Text = points[10];
 
 
             button.Add(lblpoints);
