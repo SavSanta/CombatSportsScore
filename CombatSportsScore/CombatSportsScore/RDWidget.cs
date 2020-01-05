@@ -31,11 +31,16 @@ namespace CombatSportsScore
     {
         private string roundNumber;
 
+
         public RDWidget()
         {
             this.Build();
         }
 
+
+        public bool IsKnockdown => this.toggleKD.Active;
+        public bool IsDeduction => this.toggleFoul.Active;
+        public bool IsSwing => this.toggleSwing.Active;
 
         public string RoundNumber
         {
@@ -97,5 +102,6 @@ namespace CombatSportsScore
             }
 
         }
+
     }
 }

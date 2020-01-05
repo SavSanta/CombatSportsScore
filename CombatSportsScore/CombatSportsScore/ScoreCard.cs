@@ -41,6 +41,8 @@ namespace CombatSportsScore
         private Round[] rounds;
         Fighter fighter1;
         Fighter fighter2;
+        private string fightComment;
+
 
         public ScoreCard() 
         {
@@ -67,6 +69,7 @@ namespace CombatSportsScore
         public Fighter Fighter1 { get => fighter1; set => fighter1 = value; }
         public Fighter Fighter2 { get => fighter2; set => fighter2 = value; }
         public int ScoreID { get => scoreID; set => scoreID = value; }
+        public string FightComment { get => fightComment; set => fightComment = value; }
 
         public void TallyScoreCard() 
         {

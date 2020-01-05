@@ -53,7 +53,7 @@ public partial class MainWindow : Gtk.Window
         PopulateTotals();
     }
 
-    protected void OnEntryScoreCardNameUpdate(object sender, EventArgs args)
+    protected void OnEntryScoreCardTitleUpdate(object sender, EventArgs args)
     {
         if (this.main_Card != null)
         {
@@ -227,11 +227,14 @@ public partial class MainWindow : Gtk.Window
         {
             CombatSportsScore.RDWidget item = (CombatSportsScore.RDWidget) widge.Current;
 
-            // Update the Backend
+            // Update the Backend - Round Specific Members
             main_Card.Rounds[count].Score1 = (byte) item.FighterScore1;
             main_Card.Rounds[count].Score2 = (byte) item.FighterScore2;
+            main_Card.Rounds[count].IsKnockdown = item.IsKnockdown;
+            main_Card.Rounds[count].IsDeduction = item.IsDeduction;
+            main_Card.Rounds[count].IsSwing = item.IsSwing;
 
-            // Update the Frontend
+            // Update the Frontend - GUI Total Scores frame
             total1 += item.FighterScore1;
             total2 += item.FighterScore2;
 
