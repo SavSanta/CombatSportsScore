@@ -57,7 +57,7 @@ public partial class MainWindow
 
 	private global::Gtk.Table rdtable;
 
-	private global::CombatSportsScore.RDWidget rdwidget1;
+	private global::CombatSportsScore.RDWidget[] rdwidget;
 
 	private global::Gtk.Frame frameTotalScore;
 
@@ -234,13 +234,14 @@ public partial class MainWindow
 		this.rdtable = new global::Gtk.Table(((uint)(1)), ((uint)(1)), false);
 		this.rdtable.Name = "rdtable";
 		this.rdtable.RowSpacing = ((uint)(1));
-		// Container child rdtable.Gtk.Table+TableChild
-		this.rdwidget1 = new global::CombatSportsScore.RDWidget();
-		this.rdwidget1.Events = ((global::Gdk.EventMask)(256));
-		this.rdwidget1.Name = "rdwidget1";
-		this.rdwidget1.RoundNumber = "1";
-		this.rdtable.Add(this.rdwidget1);
-		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.rdtable[this.rdwidget1]));
+        // Container child rdtable.Gtk.Table+TableChild
+        this.rdwidget = new global::CombatSportsScore.RDWidget[1];
+        this.rdwidget[0] = new global::CombatSportsScore.RDWidget();
+		this.rdwidget[0].Events = ((global::Gdk.EventMask)(256));
+		this.rdwidget[0].Name = "rdwidget1";
+		this.rdwidget[0].RoundNumber = "1";
+		this.rdtable.Add(this.rdwidget[0]);
+		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.rdtable[this.rdwidget[0]]));
 		w13.XOptions = ((global::Gtk.AttachOptions)(0));
 		w13.YOptions = ((global::Gtk.AttachOptions)(0));
 		w12.Add(this.rdtable);
