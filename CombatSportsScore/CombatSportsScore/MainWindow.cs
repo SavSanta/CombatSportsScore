@@ -20,7 +20,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using Gtk;
-using System.Diagnostics;
 
 public partial class MainWindow : Gtk.Window
 {
@@ -147,7 +146,7 @@ public partial class MainWindow : Gtk.Window
         this.frameTotalScore.Show();
         this.textviewFightComment.Show();
         this.statusbarFooter.Show();
-        //Re-Enable Save Option In the Menu
+        this.SaveScoreCardAction.Sensitive = true;
     }
 
     public void DePopulateUI()
@@ -163,7 +162,7 @@ public partial class MainWindow : Gtk.Window
         this.frameTotalScore.Hide();
         this.textviewFightComment.Hide();
         this.statusbarFooter.Hide();
-        //De-Enable Save Option In the Menu
+        this.SaveScoreCardAction.Sensitive = false;
     }
 
 
@@ -208,12 +207,23 @@ public partial class MainWindow : Gtk.Window
         int total1 = 0;
         int total2 = 0;
 
-        foreach (CombatSportsScore.RDWidget i in this.rdwidget) { total1 += i.FighterScore1; }
-        foreach (CombatSportsScore.RDWidget i in this.rdwidget) { total2 += i.FighterScore2; }
+        int count = 0;
+        for (var widge = this.rdwidget.GetEnumerator(); widge.MoveNext(); count++)
+        {
+            CombatSportsScore.RDWidget item = (CombatSportsScore.RDWidget) widge.Current;
 
+            // Update the Backend
+            main_Card.Rounds[count].Score1 = (byte) item.FighterScore1;
+            main_Card.Rounds[count].Score2 = (byte) item.FighterScore2;
+
+            // Update the Frontend
+            total1 += item.FighterScore1;
+            total2 += item.FighterScore2;
+
+        }
+        
         this.labelTotalScore1.Markup = "<span fgcolor='red' size='x-large' weight='heavy'>" + total1.ToString() +  "</span>";
         this.labelTotalScore2.Markup = "<span fgcolor='blue' size='x-large' weight='heavy'>" + total2.ToString() + "</span>";
-
 
     }
 

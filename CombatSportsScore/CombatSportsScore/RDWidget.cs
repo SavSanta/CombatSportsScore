@@ -55,12 +55,16 @@ namespace CombatSportsScore
                 try
                 {
                     int result = this.colourbutton1.RoundPoints;
+#if DEBUG
                     Console.WriteLine($" Returning Score of '{result}'");
+#endif
                     return result;
                 }
                 catch (FormatException)
                 {
+#if DEBUG
                     Console.WriteLine($"Exception Occured Returning Zero for '{this.colourbutton1.RoundPoints}'");
+#endif
                     return 0;
                 }
 
@@ -77,12 +81,16 @@ namespace CombatSportsScore
                 try
                 {
                     int result = this.colourbutton2.RoundPoints;
+#if DEBUG
                     Console.WriteLine(result);
+#endif
                     return result;
                 }
                 catch (FormatException)
                 {
+#if DEBUG
                     Console.WriteLine($" Returning Zero for '{this.colourbutton2.RoundPoints}'");
+#endif
                     return 0;
                 }
 

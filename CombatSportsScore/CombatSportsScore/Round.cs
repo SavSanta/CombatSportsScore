@@ -55,28 +55,22 @@ namespace CombatSportsScore
             this.roundComment = comment;
         }
 
-        public Round(byte red, byte blue, string comment, bool isKnockdown, bool isDeduction, bool isSwing)
+        public Round(byte red, byte blue, bool isKnockdown, bool isDeduction, bool isSwing, string comment)
         {
             this.score1 = red;
             this.score2 = blue;
+            this.IsKnockdown = isKnockdown;
+            this.IsDeduction = isDeduction;
+            this.IsSwing = isSwing;
             this.roundComment = comment;
-            this.isKnockdown = isKnockdown;
-            this.isDeduction = isDeduction;
-            this.isSwing = isSwing;
-        }
 
-        public byte Score1 
-        {
-            get { return this.score1; }
-            set { this.score1 = value; }
-        }
-
-        public byte Score2
-        {
-            get { return this.score2; }
-            set { this.score2 = value; }
         }
 
 
+        public byte Score1 { get => score1; set => score1 = value; }
+        public byte Score2 { get => score2; set => score2 = value; }
+        public bool IsKnockdown { get => isKnockdown; set => isKnockdown = value; }
+        public bool IsDeduction { get => isDeduction; set => isDeduction = value; }
+        public bool IsSwing { get => isSwing; set => isSwing = value; }
     }
 }

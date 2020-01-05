@@ -7,9 +7,9 @@ public partial class MainWindow
 
 	private global::Gtk.Action FileAction;
 
-	private global::Gtk.Action LoadDatabaseAction;
+	private global::Gtk.Action LoadScoreCardAction;
 
-	private global::Gtk.Action SaveDatabaseAction;
+	private global::Gtk.Action SaveScoreCardAction;
 
 	private global::Gtk.Action ExitAction;
 
@@ -82,12 +82,13 @@ public partial class MainWindow
 		this.FileAction = new global::Gtk.Action("FileAction", "File", null, null);
 		this.FileAction.ShortLabel = "File";
 		w1.Add(this.FileAction, null);
-		this.LoadDatabaseAction = new global::Gtk.Action("LoadDatabaseAction", "Load Database", null, null);
-		this.LoadDatabaseAction.ShortLabel = "Load Database";
-		w1.Add(this.LoadDatabaseAction, null);
-		this.SaveDatabaseAction = new global::Gtk.Action("SaveDatabaseAction", "Save Database", null, null);
-		this.SaveDatabaseAction.ShortLabel = "Save Database";
-		w1.Add(this.SaveDatabaseAction, null);
+		this.LoadScoreCardAction = new global::Gtk.Action("LoadScoreCardAction", "Load ScoreCard", null, null);
+		this.LoadScoreCardAction.ShortLabel = "Load ScoreCard";
+		w1.Add(this.LoadScoreCardAction, null);
+		this.SaveScoreCardAction = new global::Gtk.Action("SaveScoreCardAction", "Save ScoreCard", null, null);
+		this.SaveScoreCardAction.Sensitive = false;
+		this.SaveScoreCardAction.ShortLabel = "Save ScoreCard";
+		w1.Add(this.SaveScoreCardAction, null);
 		this.ExitAction = new global::Gtk.Action("ExitAction", "Exit", null, null);
 		this.ExitAction.ShortLabel = "Exit";
 		w1.Add(this.ExitAction, null);
@@ -102,6 +103,7 @@ public partial class MainWindow
 		w1.Add(this.NewScoreCardAction, "<Primary>n");
 		this.DeleteScoreCardAction = new global::Gtk.Action("DeleteScoreCardAction", "Delete ScoreCard", null, null);
 		this.DeleteScoreCardAction.ShortLabel = "Delete ScoreCard";
+		this.DeleteScoreCardAction.Visible = false;
 		w1.Add(this.DeleteScoreCardAction, null);
 		this.UIManager.InsertActionGroup(w1, 0);
 		this.AddAccelGroup(this.UIManager.AccelGroup);
@@ -121,7 +123,7 @@ public partial class MainWindow
 		this.hboxMenu.Name = "hboxMenu";
 		this.hboxMenu.Spacing = 6;
 		// Container child hboxMenu.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString(@"<ui><menubar name='menubar'><menu name='FileAction' action='FileAction'><menuitem name='NewScoreCardAction' action='NewScoreCardAction'/><menuitem name='DeleteScoreCardAction' action='DeleteScoreCardAction'/><menuitem name='LoadDatabaseAction' action='LoadDatabaseAction'/><menuitem name='SaveDatabaseAction' action='SaveDatabaseAction'/><menuitem name='ExitAction' action='ExitAction'/></menu><menu name='HelpAction' action='HelpAction'><menuitem name='AboutAction' action='AboutAction'/></menu></menubar></ui>");
+		this.UIManager.AddUiFromString(@"<ui><menubar name='menubar'><menu name='FileAction' action='FileAction'><menuitem name='NewScoreCardAction' action='NewScoreCardAction'/><menuitem name='DeleteScoreCardAction' action='DeleteScoreCardAction'/><menuitem name='LoadScoreCardAction' action='LoadScoreCardAction'/><menuitem name='SaveScoreCardAction' action='SaveScoreCardAction'/><menuitem name='ExitAction' action='ExitAction'/></menu><menu name='HelpAction' action='HelpAction'><menuitem name='AboutAction' action='AboutAction'/></menu></menubar></ui>");
 		this.menubar = ((global::Gtk.MenuBar)(this.UIManager.GetWidget("/menubar")));
 		this.menubar.Name = "menubar";
 		this.hboxMenu.Add(this.menubar);
