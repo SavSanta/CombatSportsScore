@@ -341,6 +341,7 @@
                 <property name="IsEditable">True</property>
                 <property name="WidthChars">3</property>
                 <property name="InvisibleChar">•</property>
+                <signal name="EditingDone" handler="OnEntryScoreCardNameUpdate" />
               </widget>
               <packing>
                 <property name="Position">1</property>

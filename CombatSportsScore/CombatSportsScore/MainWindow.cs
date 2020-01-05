@@ -53,6 +53,13 @@ public partial class MainWindow : Gtk.Window
         PopulateTotals();
     }
 
+    protected void OnEntryScoreCardNameUpdate(object sender, EventArgs args)
+    {
+        if (this.main_Card != null)
+        {
+            this.main_Card.ScoreTitle = (sender as Entry).Text;
+        }
+    }
 
     protected void OnNewScoreCardActionActivated(object sender, EventArgs e)
     {

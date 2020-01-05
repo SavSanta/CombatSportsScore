@@ -325,7 +325,8 @@ public partial class MainWindow
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.ExitAction.Activated += new global::System.EventHandler(this.OnExit);
-		this.NewScoreCardAction.Activated += new global::System.EventHandler(this.OnNewScoreCardActionActivated);
+		this.NewScoreCardAction.Activated += new System.EventHandler(OnNewScoreCardActionActivated);
 		this.DeleteScoreCardAction.Activated += new global::System.EventHandler(this.OnDeleteScoreCardActionActivated);
-	}
+	    this.entryScoreCardName.Changed += new System.EventHandler(OnEntryScoreCardNameUpdate);
+    }
 }
