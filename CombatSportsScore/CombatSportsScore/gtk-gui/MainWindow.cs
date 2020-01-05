@@ -355,3 +355,5 @@ public partial class MainWindow
         this.ExitAction1.Activated += new global::System.EventHandler(this.OnExit);
         this.NewScoreCardAction.Activated += new global::System.EventHandler(this.OnNewScoreCardActionActivated);
         this.DeleteScoreCardAction.Activated += new global::System.EventHandler(this.OnDeleteScoreCardActionActivated);
+    }
+}
