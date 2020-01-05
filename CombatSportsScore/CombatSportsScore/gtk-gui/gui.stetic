@@ -14,26 +14,6 @@
         <property name="Label" translatable="yes">File</property>
         <property name="ShortLabel" translatable="yes">File</property>
       </action>
-      <action id="LoadAction">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Load</property>
-        <property name="ShortLabel" translatable="yes">Load</property>
-      </action>
-      <action id="SaveAction">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Save</property>
-        <property name="ShortLabel" translatable="yes">Save</property>
-      </action>
-      <action id="ExitAction">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Exit</property>
-        <property name="ShortLabel" translatable="yes">Exit</property>
-      </action>
-      <action id="FileAction1">
-        <property name="Type">Action</property>
-        <property name="Label" translatable="yes">File</property>
-        <property name="ShortLabel" translatable="yes">File</property>
-      </action>
       <action id="LoadDatabaseAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">Load Database</property>
@@ -44,7 +24,7 @@
         <property name="Label" translatable="yes">Save Database</property>
         <property name="ShortLabel" translatable="yes">Save Database</property>
       </action>
-      <action id="ExitAction1">
+      <action id="ExitAction">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">Exit</property>
         <property name="ShortLabel" translatable="yes">Exit</property>
@@ -94,12 +74,12 @@
               <widget class="Gtk.MenuBar" id="menubar">
                 <property name="MemberName" />
                 <node name="menubar" type="Menubar">
-                  <node type="Menu" action="FileAction1">
+                  <node type="Menu" action="FileAction">
                     <node type="Menuitem" action="NewScoreCardAction" />
                     <node type="Menuitem" action="DeleteScoreCardAction" />
                     <node type="Menuitem" action="LoadDatabaseAction" />
                     <node type="Menuitem" action="SaveDatabaseAction" />
-                    <node type="Menuitem" action="ExitAction1" />
+                    <node type="Menuitem" action="ExitAction" />
                   </node>
                   <node type="Menu" action="HelpAction">
                     <node type="Menuitem" action="AboutAction" />
