@@ -301,6 +301,7 @@ public partial class MainWindow
 		this.entryScoreCardName.Name = "entryScoreCardName";
 		this.entryScoreCardName.Text = "Fighter 1 vs Fighter 2";
 		this.entryScoreCardName.IsEditable = true;
+		this.entryScoreCardName.MaxLength = 90;
 		this.entryScoreCardName.WidthChars = 3;
 		this.entryScoreCardName.InvisibleChar = '•';
 		this.statusbarFooter.Add(this.entryScoreCardName);
