@@ -1,4 +1,4 @@
-﻿//
+//
 //  ScoreCard.cs
 //
 //  Author:
@@ -30,9 +30,10 @@ using static System.Console;
 
 namespace CombatSportsScore
 {
+
     public class ScoreCard
     {
-        private static int currentScoreID;
+        protected static int currentScoreID;
          
         private int scoreID;
         private string scoreTitle;
@@ -53,7 +54,7 @@ namespace CombatSportsScore
 
         public ScoreCard(byte numofrds, string fighter1, string fighter2)
         {
-            this.ScoreID = GetNextScoreCardID();
+            this.ScoreID = ScoreCard.GetNextScoreCardID(this);
             // Create array and initialize each element, since Array of Custom Classes default to "null".
             this.Rounds = Enumerable.Range(0, numofrds).Select(i => new Round()).ToArray();
             this.Fighter1 = new Fighter(fighter1);
@@ -62,6 +63,7 @@ namespace CombatSportsScore
             this.ScoreTitle = $"{Fighter1.Name} vs {Fighter2.Name}";
         }
 
+        protected static int GetNextScoreCardID(ScoreCard instance) => ++ScoreCard.currentScoreID;
         public DateTime Date { get => date; set => date = value; }
         public ushort[] ScoreTotal { get => scoreTotal; set => scoreTotal = value; }
         public Round[] Rounds { get => rounds; set => rounds = value; }
@@ -91,14 +93,6 @@ namespace CombatSportsScore
             }
 
         }
-
-        protected int GetNextScoreCardID()
-        {
-            return ++currentScoreID;
-        }
-
-
-
 
     }
 }
