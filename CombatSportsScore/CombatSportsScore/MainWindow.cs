@@ -149,17 +149,17 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnSaveScoreCardActionActivated(object sender, EventArgs e)
     {
-        string personaldocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "CombatSports ScoreCards";
+        string defsaveloc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "CombatSportsCards";
 
         Gtk.FileChooserDialog dirchooser = new Gtk.FileChooserDialog("Choose Save Directory",
             this, FileChooserAction.CreateFolder,
             "Cancel", 400,
             "Open", 200);
 
-        /* TODO - Add Convenience Default Preferred Location Here */
+        /* TODO - Add Convenience Remembered Preferred Location Here */
 
         dirchooser.LocalOnly = true;
-        dirchooser.CurrentName = personaldocs;
+        dirchooser.CurrentName = defsaveloc;
 
         /* TODO - Separate this out to it's own class file so I can call infintely on null path returns in Nautilus */
 
@@ -168,7 +168,7 @@ public partial class MainWindow : Gtk.Window
             string fpath = dirchooser.Filename;
             if (string.IsNullOrEmpty(fpath))
             {
-                fpath = personaldocs;
+                fpath = defsaveloc;
             }
 
             this.SaveCard(fpath);
