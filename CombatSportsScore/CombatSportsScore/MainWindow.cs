@@ -1,4 +1,4 @@
-﻿//
+//
 //  MainWindow.cs
 //
 //  Author:
@@ -161,6 +161,8 @@ public partial class MainWindow : Gtk.Window
         dirchooser.LocalOnly = true;
         dirchooser.CurrentName = personaldocs;
 
+        /* TODO - Separate this out to it's own class file so I can call infintely on null path returns in Nautilus */
+
         if (dirchooser.Run() == 200)
         {
             string fpath = dirchooser.Filename;
@@ -169,9 +171,7 @@ public partial class MainWindow : Gtk.Window
                 fpath = personaldocs;
             }
 
-            /* TODO - Normalize The Target File Names */
-
-
+            this.SaveCard(fpath);
 
         }
 
@@ -279,19 +279,27 @@ public partial class MainWindow : Gtk.Window
     }
 
 
-    public void SaveCard(string savepath)
+    private void SaveCard(string savepath)
     {
         if (this.main_Card != null)
         {
-            string dataobj = JsonConvert.SerializeObject(this.main_Card);
-            string savefilename = string.Join("-", this.main_Card.ScoreTitle);
+            string dataobj;
+            string savefilename = this.main_Card.ScoreTitle;
+            var invalids = System.IO.Path.GetInvalidFileNameChars();
 
+            dataobj = JsonConvert.SerializeObject(this.main_Card);
+            savefilename = savefilename.Trim();
+
+            // Sanitize filename for the OS
+            savefilename = savefilename.Replace(' ', '_');
+            savefilename = string.Join("_", savefilename.Split(invalids, StringSplitOptions.RemoveEmptyEntries));
 
             // Want/should serialize program version but I dont really expect major changes while not databased yet 
             using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(savepath, savefilename)))
             {
                 outputFile.WriteLine(dataobj);
             }
+
 
         }
     }
