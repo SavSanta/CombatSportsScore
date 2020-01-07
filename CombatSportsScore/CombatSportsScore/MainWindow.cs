@@ -18,8 +18,10 @@
 //
 //  You should have received a copy of the GNU Lesser General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using Gtk;
+using System;
+using System.IO;
+using Newtonsoft.Json;
 
 public partial class MainWindow : Gtk.Window
 {
@@ -94,7 +96,6 @@ public partial class MainWindow : Gtk.Window
             {
                 Dialog popupFighters = new Gtk.Dialog("Enter Fighters", this, DialogFlags.Modal, Stock.Ok, 200, Stock.Cancel, 400);
                 popupFighters.BorderWidth = 4;
-                //popupFighters.SetResponseSensitive((ResponseType) 200, false);
 
                 HBox hbox = new HBox(false, 8);
                 hbox.BorderWidth = 8;
@@ -143,6 +144,38 @@ public partial class MainWindow : Gtk.Window
         }
 
         popupNumRounds.Destroy();
+    }
+
+
+    protected void OnSaveScoreCardActionActivated(object sender, EventArgs e)
+    {
+        string personaldocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+        Gtk.FileChooserDialog dirchooser = new Gtk.FileChooserDialog("Choose Save Directory",
+            this, FileChooserAction.CreateFolder,
+            "Cancel", 400,
+            "Open", 200);
+
+        /* TODO - Add Convenience Default Preferred Location Here */
+
+        dirchooser.LocalOnly = true;
+        dirchooser.CurrentName = personaldocs;
+
+        if (dirchooser.Run() == 200)
+        {
+            string fpath = dirchooser.Filename;
+            if (string.IsNullOrEmpty(fpath))
+            {
+                fpath = personaldocs;
+            }
+
+            /* TODO - Normalize The Target File Names */
+
+
+
+        }
+
+        dirchooser.Destroy();
     }
 
 
@@ -243,6 +276,24 @@ public partial class MainWindow : Gtk.Window
         this.labelTotalScore1.Markup = "<span fgcolor='red' size='x-large' weight='heavy'>" + total1.ToString() +  "</span>";
         this.labelTotalScore2.Markup = "<span fgcolor='blue' size='x-large' weight='heavy'>" + total2.ToString() + "</span>";
 
+    }
+
+
+    public void SaveCard(string savepath)
+    {
+        if (this.main_Card != null)
+        {
+            string dataobj = JsonConvert.SerializeObject(this.main_Card);
+            string savefilename = string.Join("-", this.main_Card.ScoreTitle);
+
+
+            // Want/should serialize program version but I dont really expect major changes while not databased yet 
+            using (StreamWriter outputFile = new StreamWriter(System.IO.Path.Combine(savepath, savefilename)))
+            {
+                outputFile.WriteLine(dataobj);
+            }
+
+        }
     }
 
 

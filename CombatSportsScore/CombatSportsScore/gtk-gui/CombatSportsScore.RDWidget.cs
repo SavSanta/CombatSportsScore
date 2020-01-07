@@ -41,7 +41,7 @@ namespace CombatSportsScore
 			w1.XOptions = ((global::Gtk.AttachOptions)(4));
 			w1.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child table.Gtk.Table+TableChild
-			this.colourbutton2 = new global::CombatSportsScore.ColourButton();
+			this.colourbutton2 = new global::CombatSportsScore.ColourButton(2);
 			this.colourbutton2.Events = ((global::Gdk.EventMask)(256));
 			this.colourbutton2.Name = "colourbutton2";
 			this.table.Add(this.colourbutton2);

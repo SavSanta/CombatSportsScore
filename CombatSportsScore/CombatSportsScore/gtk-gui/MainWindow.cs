@@ -326,7 +326,8 @@ public partial class MainWindow
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.ExitAction.Activated += new global::System.EventHandler(this.OnExit);
 		this.NewScoreCardAction.Activated += new System.EventHandler(OnNewScoreCardActionActivated);
-		this.DeleteScoreCardAction.Activated += new global::System.EventHandler(this.OnDeleteScoreCardActionActivated);
+        this.SaveScoreCardAction.Activated += new System.EventHandler(OnSaveScoreCardActionActivated);
+        this.DeleteScoreCardAction.Activated += new global::System.EventHandler(this.OnDeleteScoreCardActionActivated);
 	    this.entryScoreCardName.Changed += new System.EventHandler(OnEntryScoreCardTitleUpdate);
         this.textviewFightComment.Buffer.UserActionEnded += new System.EventHandler(OnBufferFightCommentUpdate);
 
