@@ -149,7 +149,7 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnSaveScoreCardActionActivated(object sender, EventArgs e)
     {
-        string personaldocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + +"CombatSports Cards";
+        string personaldocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "CombatSports ScoreCards";
 
         Gtk.FileChooserDialog dirchooser = new Gtk.FileChooserDialog("Choose Save Directory",
             this, FileChooserAction.CreateFolder,
