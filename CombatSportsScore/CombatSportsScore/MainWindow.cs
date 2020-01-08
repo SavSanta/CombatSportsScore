@@ -1,4 +1,4 @@
-//
+﻿//
 //  MainWindow.cs
 //
 //  Author:
@@ -149,17 +149,21 @@ public partial class MainWindow : Gtk.Window
 
     protected void OnSaveScoreCardActionActivated(object sender, EventArgs e)
     {
-        string defsaveloc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "CombatSportsCards";
+        // set default save location
+        string defsaveloc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        defsaveloc = System.IO.Path.Combine(defsaveloc, "CombatSportsCards");
+        System.IO.Directory.CreateDirectory(defsaveloc);
 
         Gtk.FileChooserDialog dirchooser = new Gtk.FileChooserDialog("Choose Save Directory",
             this, FileChooserAction.CreateFolder,
             "Cancel", 400,
-            "Open", 200);
+            "Choose", 200);
 
         /* TODO - Add Convenience Remembered Preferred Location Here */
 
         dirchooser.LocalOnly = true;
         dirchooser.CurrentName = defsaveloc;
+        dirchooser.SetCurrentFolder(defsaveloc);
 
         /* TODO - Separate this out to it's own class file so I can call infintely on null path returns in Nautilus */
 
@@ -178,6 +182,40 @@ public partial class MainWindow : Gtk.Window
         dirchooser.Destroy();
     }
 
+
+    protected void OnLoadScoreCardActionActivated(object sender, EventArgs e)
+    {
+        // set default location
+        string defsaveloc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); 
+        defsaveloc = System.IO.Path.Combine(defsaveloc, "CombatSportsCards");
+
+        Gtk.FileChooserDialog dirchooser = new Gtk.FileChooserDialog("Choose Load File",
+            this, FileChooserAction.Open,
+            "Cancel", 400,
+            "Load", 200);
+
+        dirchooser.LocalOnly = true;
+        dirchooser.SetCurrentFolder(defsaveloc);
+
+        /* TODO Once a magic header and extensions has been investigated      */
+        //Gtk.FileFilter filter = new Gtk.FileFilter();
+        //filter.Name = "CombatSports Score Card";
+        //filter.AddPattern("*.scard");
+        //fc.AddFilter(filter);
+
+        if (dirchooser.Run() == 200)
+        {
+            string fpath = dirchooser.Filename;
+            if (!(string.IsNullOrEmpty(fpath)))
+            {
+                this.LoadCard(fpath);
+            }
+
+
+        }
+
+        dirchooser.Destroy();
+    }
 
     public void PopulateUI()
     {
@@ -214,22 +252,41 @@ public partial class MainWindow : Gtk.Window
     }
 
 
-    public void PopulateRDTable(byte numofrounds) 
+    public void PopulateRDTable(byte numofrounds, bool repop = false)
     {
         this.rdtable.Resize(numofrounds, 1);
         this.rdwidget = new CombatSportsScore.RDWidget[numofrounds];
 
         for (uint i = 0; i < numofrounds; i++)
         {
-            this.rdwidget[i] = new CombatSportsScore.RDWidget();
-            this.rdwidget[i].Events = ((global::Gdk.EventMask)(256));
-            this.rdwidget[i].Name = "rdwidget" + (i + 1);
-            this.rdwidget[i].RoundNumber = Convert.ToString(i + 1);
-            this.rdtable.Attach(this.rdwidget[i], 0, 1, 0 + i, 1 + i, (AttachOptions)1, (AttachOptions)0 , 0, 0);
-            this.rdwidget[i].WidgetEvent += OnRDWidgetExposureEvent;
-            rdtable.ShowAll();
+            if (repop)
+            {
+                this.rdwidget[i] = new CombatSportsScore.RDWidget(main_Card.Rounds[i].Score1
+                    , main_Card.Rounds[i].Score2
+                    , main_Card.Rounds[i].IsKnockdown
+                    , main_Card.Rounds[i].IsDeduction
+                    , main_Card.Rounds[i].IsSwing);
+                this.rdwidget[i].Events = ((global::Gdk.EventMask)(256));
+                this.rdwidget[i].Name = "rdwidget" + (i + 1);
+                this.rdwidget[i].RoundNumber = Convert.ToString(i + 1);
+                this.rdtable.Attach(this.rdwidget[i], 0, 1, 0 + i, 1 + i, (AttachOptions)1, (AttachOptions)0, 0, 0);
+                this.rdwidget[i].WidgetEvent += OnRDWidgetExposureEvent;
+            }
+            else
+            {
+                this.rdwidget[i] = new CombatSportsScore.RDWidget();
+                this.rdwidget[i].Events = ((global::Gdk.EventMask)(256));
+                this.rdwidget[i].Name = "rdwidget" + (i + 1);
+                this.rdwidget[i].RoundNumber = Convert.ToString(i + 1);
+                this.rdtable.Attach(this.rdwidget[i], 0, 1, 0 + i, 1 + i, (AttachOptions)1, (AttachOptions)0, 0, 0);
+                this.rdwidget[i].WidgetEvent += OnRDWidgetExposureEvent;
+            }
         }
+        rdtable.ShowAll();
+
     }
+
+
 
     public void DePopulateRDTable()
     {
@@ -278,7 +335,6 @@ public partial class MainWindow : Gtk.Window
 
     }
 
-
     private void SaveCard(string savepath)
     {
         if (this.main_Card != null)
@@ -290,7 +346,7 @@ public partial class MainWindow : Gtk.Window
             dataobj = JsonConvert.SerializeObject(this.main_Card);
             savefilename = savefilename.Trim();
 
-            // Sanitize filename for the OS
+            // Sanitize filename for saving on the OS
             savefilename = savefilename.Replace(' ', '_');
             savefilename = string.Join("_", savefilename.Split(invalids, StringSplitOptions.RemoveEmptyEntries));
 
@@ -304,6 +360,29 @@ public partial class MainWindow : Gtk.Window
         }
     }
 
+
+    private void LoadCard(string savepath)
+    {
+        string dataobj;
+
+        // Read in saved ScoreCard dataobj
+        using (StreamReader inputFile = new StreamReader(savepath))
+        {
+            dataobj = inputFile.ReadToEnd();
+            /**** TODO Test for magic header or exception out      ******/
+        }
+
+        // Check if the a main ScoreCard has been created for the program, if not, make one.
+        if (this.main_Card == null)
+        {
+            this.main_Card = new CombatSportsScore.ScoreCard();
+        }
+
+        this.main_Card = JsonConvert.DeserializeObject<CombatSportsScore.ScoreCard>(dataobj);
+        PopulateRDTable((byte)this.main_Card.Rounds.Length, true);
+        PopulateUI();
+
+    }
 
 }
 

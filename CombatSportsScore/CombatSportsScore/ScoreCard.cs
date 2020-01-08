@@ -1,4 +1,4 @@
-//
+﻿//
 //  ScoreCard.cs
 //
 //  Author:

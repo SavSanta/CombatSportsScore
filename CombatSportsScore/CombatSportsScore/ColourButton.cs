@@ -134,6 +134,12 @@ namespace CombatSportsScore
                 // Return points-value using which should be at same index of points array.
                 return pvalues[Array.IndexOf(points, lblpoints.Text)];
             }
+            set
+            {
+                // This will do the reverse and actually set the label. 
+                // Pretty much only used when LOADing saved cards.
+                this.lblpoints.Text = points[Array.IndexOf(pvalues, value)];
+            }
         }
         
 

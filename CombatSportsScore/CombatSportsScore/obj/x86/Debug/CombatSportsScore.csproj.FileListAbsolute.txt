@@ -7,3 +7,5 @@
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.exe
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.pdb
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/obj/x86/Debug/CombatSportsScore.csprojAssemblyReference.cache
+/home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/Newtonsoft.Json.dll
+/home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/Newtonsoft.Json.xml

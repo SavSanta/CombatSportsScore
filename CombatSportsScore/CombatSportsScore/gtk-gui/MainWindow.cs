@@ -123,7 +123,7 @@ public partial class MainWindow
 		this.hboxMenu.Name = "hboxMenu";
 		this.hboxMenu.Spacing = 6;
 		// Container child hboxMenu.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString(@"<ui><menubar name='menubar'><menu name='FileAction' action='FileAction'><menuitem name='NewScoreCardAction' action='NewScoreCardAction'/><menuitem name='DeleteScoreCardAction' action='DeleteScoreCardAction'/><menuitem name='LoadScoreCardAction' action='LoadScoreCardAction'/><menuitem name='SaveScoreCardAction' action='SaveScoreCardAction'/><menuitem name='ExitAction' action='ExitAction'/></menu><menu name='HelpAction' action='HelpAction'><menuitem name='AboutAction' action='AboutAction'/></menu></menubar></ui>");
+		this.UIManager.AddUiFromString(@"<ui><menubar name='menubar'><menu name='FileAction' action='FileAction'><menuitem name='NewScoreCardAction' action='NewScoreCardAction'/><menuitem name='DeleteScoreCardAction' action='DeleteScoreCardAction'/><menuitem name='SaveScoreCardAction' action='SaveScoreCardAction'/><menuitem name='LoadScoreCardAction' action='LoadScoreCardAction'/><menuitem name='ExitAction' action='ExitAction'/></menu><menu name='HelpAction' action='HelpAction'><menuitem name='AboutAction' action='AboutAction'/></menu></menubar></ui>");
 		this.menubar = ((global::Gtk.MenuBar)(this.UIManager.GetWidget("/menubar")));
 		this.menubar.Name = "menubar";
 		this.hboxMenu.Add(this.menubar);
@@ -301,7 +301,7 @@ public partial class MainWindow
 		this.entryScoreCardName.Name = "entryScoreCardName";
 		this.entryScoreCardName.Text = "Fighter 1 vs Fighter 2";
 		this.entryScoreCardName.IsEditable = true;
-		this.entryScoreCardName.MaxLength = 90;
+        this.entryScoreCardName.MaxLength = 90;
 		this.entryScoreCardName.WidthChars = 3;
 		this.entryScoreCardName.InvisibleChar = '•';
 		this.statusbarFooter.Add(this.entryScoreCardName);
@@ -328,9 +328,11 @@ public partial class MainWindow
 		this.ExitAction.Activated += new global::System.EventHandler(this.OnExit);
 		this.NewScoreCardAction.Activated += new System.EventHandler(OnNewScoreCardActionActivated);
         this.SaveScoreCardAction.Activated += new System.EventHandler(OnSaveScoreCardActionActivated);
+        this.LoadScoreCardAction.Activated += new System.EventHandler(OnLoadScoreCardActionActivated);
         this.DeleteScoreCardAction.Activated += new global::System.EventHandler(this.OnDeleteScoreCardActionActivated);
 	    this.entryScoreCardName.Changed += new System.EventHandler(OnEntryScoreCardTitleUpdate);
         this.textviewFightComment.Buffer.UserActionEnded += new System.EventHandler(OnBufferFightCommentUpdate);
+
 
     }
 }

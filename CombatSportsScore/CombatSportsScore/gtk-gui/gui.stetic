@@ -377,6 +377,7 @@
           <widget class="CombatSportsScore.ColourButton" id="colourbutton1">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
+            <property name="RoundPoints">0</property>
           </widget>
           <packing>
             <property name="TopAttach">1</property>
@@ -396,6 +397,7 @@
           <widget class="CombatSportsScore.ColourButton" id="colourbutton2">
             <property name="MemberName" />
             <property name="Events">ButtonPressMask</property>
+            <property name="RoundPoints">0</property>
           </widget>
           <packing>
             <property name="TopAttach">1</property>

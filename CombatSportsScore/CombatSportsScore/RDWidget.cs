@@ -37,10 +37,33 @@ namespace CombatSportsScore
             this.Build();
         }
 
+        public RDWidget(int fscore1, int fscore2, bool iskd, bool isdd, bool issw)
+        {
+            this.Build();
+            this.FighterScore1 = fscore1;
+            this.FighterScore2 = fscore2;
+            this.IsKnockdown = iskd;
+            this.IsDeduction = isdd;
+            this.IsSwing = issw;
+        }
 
-        public bool IsKnockdown => this.toggleKD.Active;
-        public bool IsDeduction => this.toggleFoul.Active;
-        public bool IsSwing => this.toggleSwing.Active;
+        public bool IsKnockdown
+        {
+            get => this.toggleKD.Active;
+            set => this.toggleKD.Active = value;
+        }
+
+        public bool IsDeduction
+        {
+            get => this.toggleFoul.Active;
+            set => this.toggleFoul.Active = value;
+        }
+
+        public bool IsSwing
+        {
+            get => this.toggleSwing.Active;
+            set => this.toggleSwing.Active = value;
+        }
 
         public string RoundNumber
         {
@@ -74,6 +97,7 @@ namespace CombatSportsScore
                 }
 
             }
+            set => this.colourbutton1.RoundPoints = value;
 
         }
 
@@ -100,6 +124,7 @@ namespace CombatSportsScore
                 }
 
             }
+            set => this.colourbutton2.RoundPoints = value;
 
         }
 
