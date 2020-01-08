@@ -246,6 +246,7 @@ public partial class MainWindow : Gtk.Window
         this.entryScoreCardName.Text = this.main_Card.ScoreTitle;
         this.GtkScrolledWindow.Hide();
         this.frameTotalScore.Hide();
+        this.textviewFightComment.Buffer.Clear();
         this.textviewFightComment.Hide();
         this.statusbarFooter.Hide();
         this.SaveScoreCardAction.Sensitive = false;
