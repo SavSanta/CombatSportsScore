@@ -1,6 +1,3 @@
-/home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/img/foul.xpm
-/home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/img/swing.xpm
-/home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/img/knockdown.xpm
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/CombatSportsScore.exe
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/CombatSportsScore.pdb
 /home/santa/Projects/CombatSportsScore/CombatSportsScore/bin/Debug/libstetic.dll

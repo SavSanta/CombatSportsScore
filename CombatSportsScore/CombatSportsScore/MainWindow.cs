@@ -22,6 +22,7 @@ using Gtk;
 using System;
 using System.IO;
 using Newtonsoft.Json;
+using System.Reflection;
 
 public partial class MainWindow : Gtk.Window
 {

@@ -66,14 +66,11 @@
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
         <EmbeddedResource Include="img\foul.xpm">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </EmbeddedResource>
         <EmbeddedResource Include="img\swing.xpm">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </EmbeddedResource>
         <EmbeddedResource Include="img\knockdown.xpm">
       <DeployService-UseProjectRelativePath>true</DeployService-UseProjectRelativePath>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

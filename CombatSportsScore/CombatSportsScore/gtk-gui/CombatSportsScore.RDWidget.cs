@@ -22,6 +22,21 @@ namespace CombatSportsScore
 
         protected virtual void Build()
         {
+
+            // Memory Loading the pixmaps got layer use
+            System.Reflection.Assembly myAssembly = System.Reflection.Assembly.GetExecutingAssembly();
+            System.IO.Stream myStream = myAssembly.GetManifestResourceStream("CombatSportsScore.img.knockdown.xpm");
+            global::Gtk.Image w4 = new global::Gtk.Image(myStream);
+
+            System.Reflection.Assembly myAssembly2 = System.Reflection.Assembly.GetExecutingAssembly();
+            System.IO.Stream myStream2 = myAssembly2.GetManifestResourceStream("CombatSportsScore.img.foul.xpm");
+            global::Gtk.Image w6 = new global::Gtk.Image(myStream2);
+
+            System.Reflection.Assembly myAssembly3 = System.Reflection.Assembly.GetExecutingAssembly();
+            System.IO.Stream myStream3 = myAssembly3.GetManifestResourceStream("CombatSportsScore.img.swing.xpm");
+            global::Gtk.Image w8 = new global::Gtk.Image(myStream3);
+
+
             global::Stetic.Gui.Initialize(this);
             // Widget CombatSportsScore.RDWidget
             global::Stetic.BinContainer.Attach(this);
@@ -57,23 +72,20 @@ namespace CombatSportsScore
             this.hboxtoggle.Name = "hboxtoggle";
             this.hboxtoggle.Homogeneous = true;
             // Container child hboxtoggle.Gtk.Box+BoxChild
-            // Container child hboxtoggle.Gtk.Box+BoxChild
             this.toggleKD = new global::Gtk.ToggleButton();
             global::Gtk.Tooltips w3 = new Gtk.Tooltips();
-            w3.SetTip(this.toggleKD, "If Round Has A KnockDown", "If Round Has A KnockDown");
+            w3.SetTip(this.toggleKD, "KnockDown in Round", "KnockDown in Round");
             this.toggleKD.CanFocus = true;
             this.toggleKD.Name = "toggleKD";
-            global::Gtk.Image w4 = new global::Gtk.Image("img/knockdown.xpm");
             this.toggleKD.Image = w4;
             this.hboxtoggle.Add(this.toggleKD);
             global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.hboxtoggle[this.toggleKD]));
             w5.Position = 0;
             // Container child hboxtoggle.Gtk.Box+BoxChild
             this.toggleFoul = new global::Gtk.ToggleButton();
-            w3.SetTip(this.toggleFoul, "Round Has Points Taken", "Round Has Points Taken");
+            w3.SetTip(this.toggleFoul, "Ref Deducted Foul Points", "Ref Deducted Foul Points");
             this.toggleFoul.CanFocus = true;
             this.toggleFoul.Name = "toggleFoul";
-            global::Gtk.Image w6 = new global::Gtk.Image("img/foul.xpm");
             this.toggleFoul.Image = w6;
             this.hboxtoggle.Add(this.toggleFoul);
             global::Gtk.Box.BoxChild w7 = ((global::Gtk.Box.BoxChild)(this.hboxtoggle[this.toggleFoul]));
@@ -83,9 +95,9 @@ namespace CombatSportsScore
             w3.SetTip(this.toggleSwing, "You Consider Round Swingable To Either Fighter", "You Consider Round Swingable To Either Fighter");
             this.toggleSwing.CanFocus = true;
             this.toggleSwing.Name = "toggleSwing";
-            global::Gtk.Image w8 = new global::Gtk.Image("img/swing.xpm");
             this.toggleSwing.Image = w8;
             this.hboxtoggle.Add(this.toggleSwing);
+
             global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.hboxtoggle[this.toggleSwing]));
             w9.Position = 2;
             this.table.Add(this.hboxtoggle);
