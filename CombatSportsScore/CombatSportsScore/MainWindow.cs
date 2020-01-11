@@ -1,4 +1,4 @@
-﻿//
+//
 //  MainWindow.cs
 //
 //  Author:
@@ -231,6 +231,7 @@ public partial class MainWindow : Gtk.Window
         this.entryScoreCardName.Text = this.main_Card.ScoreTitle;
         this.GtkScrolledWindow.Show();
         this.frameTotalScore.Show();
+        this.textviewFightComment.Buffer.Text += this.main_Card.FightComment;
         this.textviewFightComment.Show();
         this.statusbarFooter.Show();
         this.SaveScoreCardAction.Sensitive = true;
