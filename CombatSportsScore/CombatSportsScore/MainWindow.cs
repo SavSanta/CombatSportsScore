@@ -69,6 +69,22 @@ public partial class MainWindow : Gtk.Window
         }
     }
 
+    protected void OnAboutActionActivated(object sender, EventArgs e)
+    {
+
+        AboutDialog abdg = new AboutDialog();
+
+        abdg.WrapLicense = true;
+        abdg.Authors = new string[] { "SavSanta <@SavSantaX>" };
+        abdg.ProgramName = "Combat Sports ScoreCard Keeper";
+        abdg.Version = "0.95";
+        abdg.Website = "https://github.com/SavSanta/CombatSportsScore";
+        abdg.Comments = "Combat Sports (Boxing/MMA/KickBoxing) Scorecard Keeper written in C# using GTK+";
+        abdg.License = "Permission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.";
+        abdg.Run();
+        abdg.Destroy();
+
+    }
 
     protected void OnBufferFightCommentUpdate(object sender, EventArgs args)
     {
@@ -93,9 +109,10 @@ public partial class MainWindow : Gtk.Window
         comboNumRounds.PopdownStrings = Array.ConvertAll(list, ele => ele.ToString());
         comboNumRounds.DisableActivate();
         comboNumRounds.SetValueInList(true, false);
-        popupNumRounds.VBox.Add(comboNumRounds);
 
+        popupNumRounds.VBox.Add(comboNumRounds);
         popupNumRounds.ShowAll();
+
         int response_value = popupNumRounds.Run();
 
         if (response_value == 200)
@@ -103,6 +120,8 @@ public partial class MainWindow : Gtk.Window
             {
                 Dialog popupFighters = new Gtk.Dialog("Enter Fighters", this, DialogFlags.Modal, Stock.Ok, 200, Stock.Cancel, 400);
                 popupFighters.BorderWidth = 4;
+                popupFighters.DefaultResponse = (Gtk.ResponseType)200;
+
 
                 HBox hbox = new HBox(false, 8);
                 hbox.BorderWidth = 8;
@@ -125,6 +144,7 @@ public partial class MainWindow : Gtk.Window
                 table.Attach(label, 0, 1, 1, 2);
                 Entry entryFighter2 = new Entry();
                 table.Attach(entryFighter2, 1, 2, 1, 2);
+                entryFighter2.ActivatesDefault = true;
 
                 entryFighter1.MaxLength = 40;
                 entryFighter2.MaxLength = 40;
