@@ -9,3 +9,8 @@ A Combat Sports Score Card Keeper is a program written in C# and uses GTK+ toolk
 
 # Notes
 - The program attempts to find and utilize the font *Bebas Neues*.  (See https://fonts.adobe.com/fonts/bebas-neue) 
+
+
+# Credits
+XPM images are generated from modified SVGs of "Font Awesome by Dave Gandy - http://fontawesome.io"
+
