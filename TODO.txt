@@ -1,3 +1,4 @@
  - Right-click on Colourbutton in GUI to increase points value instead of having to cycle all the way backwards
+ - Magic Header on saving and loading ScoreCards
  - Searchable <Tags> system in the footer
  - Port UI to XWT or etoa
