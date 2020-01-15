@@ -109,7 +109,7 @@ public partial class MainWindow
 		this.AddAccelGroup(this.UIManager.AccelGroup);
 		this.WidthRequest = 455;
 		this.Name = "MainWindow";
-		this.Title = "Combat Sports Scorecard";
+		this.Title = "Combat Sports ScoreCard Keeper";
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		this.BorderWidth = ((uint)(6));
 		this.AllowShrink = true;
