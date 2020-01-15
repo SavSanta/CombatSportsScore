@@ -1,4 +1,4 @@
-# Combat Sports Score Card Keeper
+# Combat Sports ScoreCard Keeper
 
 Combat Sports Score Card Keeper is a program written in C# and uses GTK+ toolkit. It runs on Linux by default but can also run on Windows when the GTK+ (GTK2) runtime installed.
 
