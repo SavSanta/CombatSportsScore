@@ -79,7 +79,7 @@ public partial class MainWindow : Gtk.Window
         abdg.ProgramName = "Combat Sports ScoreCard Keeper";
         abdg.Version = "0.98";
         abdg.Website = "https://github.com/SavSanta/CombatSportsScore";
-        abdg.Comments = "Combat Sports (Boxing/MMA/KickBoxing) Scorecard Keeper written in C# using GTK+";
+        abdg.Comments = "Combat Sports (Boxing/MMA/KickBoxing) ScoreCard Keeper written in C# using GTK+";
         abdg.License = "Permission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.";
         abdg.Run();
         abdg.Destroy();
@@ -288,33 +288,22 @@ public partial class MainWindow : Gtk.Window
 
         for (uint i = 0; i < numofrounds; i++)
         {
-            if (repop)
-            {
-                this.rdwidget[i] = new CombatSportsScore.RDWidget(main_Card.Rounds[i].Score1
-                    , main_Card.Rounds[i].Score2
-                    , main_Card.Rounds[i].IsKnockdown
-                    , main_Card.Rounds[i].IsDeduction
-                    , main_Card.Rounds[i].IsSwing);
+            // Use ternary conditional to repopulate a saved table or make new per suggestion of Frozenthia 
+            this.rdwidget[i] = repop ?  new CombatSportsScore.RDWidget(main_Card.Rounds[i].Score1,
+                        main_Card.Rounds[i].Score2,
+                        main_Card.Rounds[i].IsKnockdown,
+                        main_Card.Rounds[i].IsDeduction,
+                        main_Card.Rounds[i].IsSwing)      :   new CombatSportsScore.RDWidget();
+
                 this.rdwidget[i].Events = ((global::Gdk.EventMask)(256));
                 this.rdwidget[i].Name = "rdwidget" + (i + 1);
                 this.rdwidget[i].RoundNumber = Convert.ToString(i + 1);
                 this.rdtable.Attach(this.rdwidget[i], 0, 1, 0 + i, 1 + i, (AttachOptions)1, (AttachOptions)0, 0, 0);
                 this.rdwidget[i].WidgetEvent += OnRDWidgetExposureEvent;
-            }
-            else
-            {
-                this.rdwidget[i] = new CombatSportsScore.RDWidget();
-                this.rdwidget[i].Events = ((global::Gdk.EventMask)(256));
-                this.rdwidget[i].Name = "rdwidget" + (i + 1);
-                this.rdwidget[i].RoundNumber = Convert.ToString(i + 1);
-                this.rdtable.Attach(this.rdwidget[i], 0, 1, 0 + i, 1 + i, (AttachOptions)1, (AttachOptions)0, 0, 0);
-                this.rdwidget[i].WidgetEvent += OnRDWidgetExposureEvent;
-            }
         }
         rdtable.ShowAll();
 
     }
-
 
 
     public void DePopulateRDTable()
@@ -398,7 +387,7 @@ public partial class MainWindow : Gtk.Window
         using (StreamReader inputFile = new StreamReader(savepath))
         {
             dataobj = inputFile.ReadToEnd();
-            /**** TODO Test for magic header or exception out      ******/
+            /**** TODO Test for magic header or raise Exception and exit out      ******/
         }
 
         // Check if the a main ScoreCard has been created for the program, if not, make one.
